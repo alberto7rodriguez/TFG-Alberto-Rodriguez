@@ -72,7 +72,7 @@ for N in target_Ns:
 
 # Save as JSON
 import os
-output_path = r"C:\Users\alber\OneDrive\Escritorio\TFG\JSON\prob_alldown_beta1.json"
+output_path = r"C:\Users\alber\OneDrive\Escritorio\TFG\JSON\prob_ground_beta1.json"
 with open(output_path, "w") as f:
     json.dump(prob_functions, f, indent=2)
 
