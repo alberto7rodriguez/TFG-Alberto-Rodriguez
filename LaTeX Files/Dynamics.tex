@@ -1,0 +1,150 @@
+Up to this point, we have been following known results, to identify the configuration of the theoretically optimal quantum probe and then optimized two-body spin interactions to obtain sub-optimal—but more experimentally feasible—thermometers. However this analysis has been restricted to the framework of thermal equilibrium, where the probe is assumed to be in a Gibbs state. In practice, optimizing the Fisher Information may come with the cost of longer thermalization time. This is what motivates the present section, where we  develop \textbf{new results} by shifting our focus to the dynamical and steady-state behavior of these systems, when they are coupled to a thermal bath. Our goal is to investigate how both the energy and the Fisher Information, our primary figure of merit, evolve over time, and to analyze the trade-offs that appear when we try to optimize thermometric performance at equilibrium.
+
+\section{Relaxation to equilibrium}
+To study this evolution, we restrict ourselves to the conditions described in Sections~\ref{Open Quantum Systems} and~\ref{Thermalising}. The systems are assumed to be weakly coupled to a thermal bath, and are therefore described by the Lindblad quantum master equation~\eqref{Lindblad}, while the population dynamics are governed by the Pauli master equation~\eqref{Pauli Equation}.
+
+For simplicity, all derivations will be carried out assuming an initial product state with uniform populations, \( p_n = 1/(N+1) \). As mentioned in Section~\ref{Thermalising}, altering this initial condition does not affect the long-time behavior of the system, since the quantum dynamical semigroup is ergodic. This implies that, for a given generator \( \mathcal{L} \), there exists a unique stationary state. For our generator, the Lindblad super-operator, that is constructed to satisfy detailed balance, this unique fixed point is the Gibbs state \cite{breuer2002open}.
+
+To study how the energy and the Fisher Information evolve during thermalization, we must first understand how the state populations change over time. Our initial objective is therefore to derive the rate equations that govern this evolution.
+
+We assume that each qubit is individually coupled to the thermal bath, similar to the well-known model of Glauber spin dynamics in statistical physics. This implies that only transitions between adjoint levels can happen, i.e $W_{n\to n+l}=0$ for $l\neq \pm1$. This type of interaction leads the transition rates in \eqref{rates} to take the form (see e.g. \cite{puig2024dynamical}):
+\begin{equation}
+W_{n \to m} = \alpha \xi_n\left(1 + e^{\beta \Delta U}\right)^{-1} \, \, \, ,
+\end{equation}
+where $\alpha$ is the thermalization rate, $\xi_n$ is a factor that depends on the degeneracy of level n, and $\Delta U$ is the energy difference associated with the transition. And the equations for the probabilities in \eqref{Pauli Equation} become
+\begin{equation}\label{Probabilities General}
+    \dot p_n=-p_n[W_{n\to n+1}+W_{n\to n-1}] +p_{n+1}W_{n+1\to n} + p_{n-1}W_{n-1\to n}
+\end{equation}
+
+Focusing first on the Star Model, we have two types of eigenstates. Denoting by $n$ the number of spins up, if $n=0$, it means that the central spin is also down, and the state corresponds to an energy $E_0=-a$ with degeneracy $g_0=2^{N-1}$. For $n\geq1$, using $k=n-1$, the energies $E_k$ are given by \eqref{E_k_star}, with degeneracies $g_k=\binom{N-1}{k}$. Using this, transition rates can be written as
+\begin{align}\label{Transition rates Star}
+    &W_{0\to 1}^{Star}=\alpha\left(1 + e^{\beta \Delta U}\right)^{-1}\,\,;\,\, W_{n\to n+1}^{Star} = \alpha(N-n)\left(1 + e^{\beta \Delta U}\right)^{-1}\,\,\,\, \text{for }n\geq1\\
+    &W_{1\to 0}^{Star}=2^{N-1}\alpha\left(1 + e^{\beta \Delta U}\right)^{-1}\,\,;\,\, W_{n\to n-1}^{Star} = \alpha(n-1)\left(1 + e^{\beta \Delta U}\right)^{-1}\,\,\,\, \text{for }n\geq1\,.
+\end{align}
+In section \ref{Detailed Balance Check} we verify that these transition rates satisfy the \textit{detailed balance} condition \eqref{Detailed Balance}, also for the All-To-All model. This implies that the steady state probabilities follow a Gibbs distribution, and consequently, both the Energy and FI will correspond to those of a Gibbs state, with the hamiltonian $H_{star}$ given in \eqref{Hstar}.
+
+Moving on to the All-to-All model, it is easier to construct the transition rates since there is only one type of eigenstates. Again, using $n$ as the total number of spins up, the energies $E_n$ are given by \eqref{Ek_all}, with degeneracy $g_n=\binom{N}{n}$. Therefore, the transition rates become
+\begin{align}\label{Transition rates All - 1}
+    &W_{n\to n+1}^{All} = \alpha(N-n)\left(1 + e^{\beta \Delta U}\right)^{-1}\\\label{Transition rates All - 2}
+    &W_{n\to n-1}^{All} = \alpha n\left(1 + e^{\beta \Delta U}\right)^{-1}\,\,.
+\end{align}
+
+Now we can insert this rates, derived for both systems, into \eqref{Probabilities General} to obtain the master equations governing the populations. From here, the problem reduces to solving a system of $N+1$ differential equations for each system. This task can be easily addressed by implementing a \textit{Python} program that numerically solves the system and returns the solutions $p_n(t)$. This codes are provided and explained in section \ref{Python Codes}.
+
+As an example, we consider the case $N=5$ for the Star Model, and take the solution for $p_3(t)$. Fixing $\beta=\alpha=1$, we obtain
+\begin{align}
+    &p_3(t) = 0.0014 + 0.061e^{-0.941t} + 0.024e^{-1.319t} + 1.411 e^{-2.001t} -2.248e^{-3t} + 0.915e^{-4t} \\
+    &p_3(t\to\infty)\approx0.0014 \\
+    &p_3^{Gibbs}(\beta=1)=\frac{e^{-\varepsilon^{Star}_3}}{\mathcal{Z}_{Star}}=0.0014 \,\,,
+\end{align}
+where we have used the energy $\varepsilon_3^{Star}$ and partition function, both computed using python codes that can be found in section \ref{Python Codes}. As expected, in the limit of long interaction times, the populations approaches the corresponding Gibbs value. This is the consistency check we have been applying throughout the derivations and calculations to ensure that the solutions $p_n(t)$ obtained were correct.
+
+\section{Energy and Fisher Information during thermalization}
+Now that we have obtained the solutions of \eqref{Probabilities General} for both the Star and All-To-All models, we can compute the time evolution of the energy and the FI.
+
+To describe the energy evolution, we simply compute $E(t)=\text{tr},[\varrho(t)H]$. Luckily, Lindblad dynamics preserve \textit{diagonality} in the energy eigenbasis, allowing us to simplify this expression to
+\begin{equation}\label{E(t)}
+    E(t)=\sum_n E_n\ p_n(t) \,\,,
+\end{equation}
+which is straightforward to plot now that we have both $p_n(t)$ and $E_n$.
+
+On the other hand, in order to plot $\mathcal{F}_\beta(t)$ we need to compute $\partial_{\beta}p_n(t)$. This can be challenging, given that $p_n(t)$ were obtained numerically for a fixed value of $\beta = 1$. A direct analytical derivative with respect to $\beta$ would be impractical, so we instead use the numerical definition of a derivative to approach the problem. As we mentioned, our python programs, introduced in \ref{Python Codes}, are capable of computing numerical solutions for $p_n$ for a fixed value $\beta$. Therefore, using a \textit{very small} step $h$ we can find
+\begin{equation}\label{Numerical Derivative}
+    \partial_{\beta}p_n(t)\approx\frac{p_n(\beta+h,t)-p_n(\beta,t)}{h}\,\,.
+\end{equation}
+For the plots shown in Figure \ref{Thermalization_E_and_F}, after different trials, we selected $h=0.0008$ and $\beta=1$. 
+
+Now, we already have all the ingredients we need to visualize how this two quantities behave during this thermalization process. For a single set of measurements, we can adapt the FI defined in \eqref{fisher} as
+\begin{equation}\label{Fisher Normal}
+    \mathcal{F}_\beta(t)=\sum_n\frac{(\partial_\beta\, p_n(t))^2}{p_n(t)}\,\,.
+\end{equation}
+Thus, introducing \eqref{Numerical Derivative} and the obtained $p_n(t)$ in \eqref{Fisher Normal}, and using \eqref{E(t)}, we can compute the following figures.
+\begin{figure}[h!]
+    \centering
+    \captionsetup[subfigure]{labelformat=empty}
+    % First: N=3
+    \begin{subfigure}[t]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Th_N3.png}
+        \caption{\small (a) $N=3$}
+        \label{Th_N3}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    % Second: N=5
+    \begin{subfigure}[t]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Th_N5.png}
+        \caption{\small (b) $N=5$}
+        \label{Th_N5}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    % Third: N=7
+    \begin{subfigure}[t]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Th_N7.png}
+        \caption{\small (c) $N=7$}
+        \label{Th_N7}
+    \end{subfigure}
+
+    \caption{\centering Energy and FI over time during thermalization, using $\beta=\alpha=1$, $h=0.0008$ and initial states $p_n=1/(N+1)$.}
+    \label{Thermalization_E_and_F}
+\end{figure}
+\newpage
+
+We can observe several important features in this figure. First, as seen in section~\ref{Chapter 3}, the All-to-All model provides a slight advantage in equilibrium thermometry for $N \leq 5$. However, its thermalization times are considerably longer than those of the Star Model—particularly for the Fisher Information, which increases much more rapidly with N in the All-to-All case, while the energy thermalization times remain nearly constant.
+
+This difference can be understood by noting that, although the expected value of the energy reaches equilibrium relatively quickly, the Fisher Information does not necessarily do so at the same time. The energy, being a first-moment observable, depends linearly on the population distribution and typically relaxes under the dominant decay modes of the dynamics. In contrast, the Fisher Information is a nonlinear functional that captures the sensitivity of the populations to temperature, making it much more responsive to small perturbations. As a result, it converges more slowly and its thermalization times grow significantly with system size. In the following section, we will examine in detail how these thermalization times behave with increasing N for the Star Model.
+
+\section{Optimization trade-offs}\label{Trade offs}
+To understand how the thermalization timescales behave as the system size increases, we analyze the decay rates obtained from the solutions to the master equation. In particular, by studying how the dominant (i.e., slowest) decay rate depends on $N$, we can have an idea of the trade-off between enhanced Fisher Information and slower thermalization.
+
+These decay rates correspond to the eigenvalues of the generator that governs the dynamics. Since the populations evolve according to the Lindblad master equation \eqref{Lindblad}, our decay rates are given by the eigenvalues of the associated Lindbladian \eqref{Superoperator}.
+
+As previously discussed, these solutions were obtained using Python scripts (detailed in Section~\ref{Python Codes}). In the figure below, we plot the quantity $1/|\lambda_1|$ as a function of $N$, where $\lambda_1$ denotes the smallest non-zero eigenvalue in absolute value. The populations evolve as
+\begin{equation}
+    p_n(t) = \sum_i A_i e^{\lambda_i t},
+\end{equation}
+where all eigenvalues $\lambda_i \leq 0$. The coefficient $A_0$, associated with the zero eigenvalue $\lambda_0 = 0$, determines the asymptotic (equilibrium) population $p_n(t \to \infty)$. Thus, the inverse of $|\lambda_1|$ provides a useful estimate of the thermalization timescale, as terms with $|\lambda_i| \gg |\lambda_1|$ decay much faster and quickly become negligible.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\linewidth]{Decay Rates.png}
+    \caption{\centering Scaling of the thermalization timescale $1/|\lambda_1|$ with system size $N$. The main panel compares the All-to-All model (for $N \in [2, 10]$) with the Star Model (for $N \in [2, 50]$). The inset highlights the behavior of the Star Model in greater detail.}
+    \label{Decay rates}
+\end{figure}
+
+As expected, the All-to-All model exhibits a rapid increase in the thermalization timescale with growing $N$. In contrast, the Star Model remains nearly constant beyond $N \geq 17$, and even shows longer timescales for small system sizes. This difference can be attributed to the nature of interactions in each model: while the All-to-All configuration scales its connectivity with $N$, the Star Model maintains a central-spin symmetry that remains relatively unchanged as more peripheral spins are added.
+
+As we have just discussed, optimizing the value of the FI by increasing the system size $N$ comes at the cost of longer thermalization times for the All-To-All model \cite{AntoSztrikacs2024}. This reveals a clear trade-off; while larger $N$ enhances sensitivity, longer interaction times may introduce external noise and degrade the probe's performance. With the results obtained so far, we can conclude that the Star Model exhibits more favorable features than the All-to-All configuration, including shorter thermalization times and convergence toward the optimal FI bound for large $N$.
+
+Focusing now on the Star Model, let us consider a practical scenario where measurements must be performed during the transient (non-equilibrium) regime. Suppose there exists a fixed total estimation time $\mathcal{T}$, constrained by experimental limitations. In this case, the protocol must be separeted in an optimal number $\mathcal{N} = \mathcal{T}/t$ of steps, composed of preparation, evolution, and measurement. The Cramér-Rao bound (CRB) then reads:
+\begin{equation}
+    \Delta T \geq\frac{1}{\sqrt{\mathcal{NF}(t)}}=\frac{1}{\sqrt{(\mathcal{T}/t)\mathcal{F}(t)}}\,\,\,.
+\end{equation}
+This introduces a new figure of merit to be maximized: $\eta_{\mathcal{T}}(t) := \mathcal{F}(t)/{t} \,\,,$ which quantifies the information gained per unit time. Importantly, the time $t$ that maximizes $\eta_{\mathcal{T}}(t)$—the optimal interrogation time—does not necessarily coincide with the thermalization time of the FI.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Fisher20-Nu.png}
+    \caption{\centering Evolution in time of the Fisher Information and $\eta_{\mathcal{T}}(t)$, for the Star Model and different values of $N$.}
+    \label{Fisher20-Nu}
+\end{figure}
+In Figure \ref{Fisher20-Nu}, we show the evolution of both the Fisher Information (FI) and the quantity $\eta_{\mathcal{T}}(t)$, illustrating that the optimal time for $\eta_{\mathcal{T}}$ is reached slightly before the FI attains its equilibrium value. Therefore, if the goal of an experiment is to maximize estimation precision while minimizing interaction time — or if the interaction time is constrained to be $\mathcal{T}$ — optimizing $\eta_{\mathcal{T}}$ provides the best configuration for measurement.
+
+Furthermore, we observe in Figure \ref{Fisher20-Nu} a slight increase in the thermalization time of the FI as $N$ increases. At first sight, this may appear to contradict Figure \ref{Decay rates}, which suggests that the dominant decay rate $\lambda_1$ becomes nearly constant for large $N$. One possible explanation is that Figure \ref{Decay rates} only considers the smallest non-zero eigenvalue, while other decay modes may still be subtly affected by increasing $N$. Another possibility is that, as previously discussed, the FI is a nonlinear functional that captures the sensitivity of the populations to temperature changes, which makes it more sensitive to small variations in the distribution. Lastly, it is worth considering whether the initial state of the probe plays a role in this behavior. To investigate this, we construct Figure \ref{Ground vs Equiprobable}, comparing the thermalization process starting from an equiprobable state $p_n(0) = 1/(N+1)$ versus a ground state initialization $p_1(0) = 1$ (the latter being the state in which only the central spin is up in the Star Model).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{Ground vs Uniform.png}
+\caption{\centering Evolution over time of the Fisher Information for two different initial states. Solid lines represent the ground state initialization, while dashed lines correspond to the equiprobable state.}
+\label{Ground vs Equiprobable}
+\end{figure}
+
+We observe that, although the final thermalization point is nearly identical, initializing the system in its ground state leads to higher FI values during the transient regime. This may result from the fact that concentrating all population in a single energy level increases the sensitivity to small temperature variations. Alternatively, it could be that the initially populated levels in the equiprobable case are less responsive to temperature shifts compared to those near the ground state. This behavior could be exploited in scenarios where measurements must be performed before the system reaches equilibrium. 
+
+
+
+

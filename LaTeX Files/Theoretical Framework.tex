@@ -1,0 +1,162 @@
+In this section, we introduce the essential concepts required to understand how metrology operates in the quantum regime, focusing on temperature estimation. We begin by outlining the fundamental challenges associated with defining and measuring temperature in quantum systems. Then, we present the key tools of quantum estimation theory that are employed to tackle these challenges.
+
+\section{Thermometry in the Quantum Regime.}
+Quantum thermometry is concerned with estimating temperature in regimes where quantum effects become significant. This problem arises naturally when dealing with systems of few particles or at ultra-low temperatures, where the traditional macroscopic notions of thermodynamics break down or become ambiguous.
+
+The theoretical foundation of quantum thermometry rests on a statistical description of systems in \textit{thermal equilibrium}. Such systems are modeled by the Gibbs density operator:
+\begin{equation}\label{Gibbs operator}
+{\varrho}(T) = \frac{1}{Z} \sum_k e^{-\beta \varepsilon_k} |\varepsilon_k\rangle\langle\varepsilon_k|,
+\end{equation}
+where \( \beta = 1/k_B T \), \( \{ \varepsilon_k \} \) are the energy eigenvalues of the Hamiltonian \( {H} \), and \( Z = \sum_k e^{-\beta \varepsilon_k} \) is the partition function. For convenience, we hereafter set $\mathbf{k_B = \hbar = 1}$. The important fact to notice here is that temperature \( T \) is not an observable but a parameter to be estimated from measurements on the state \( {\varrho}(T) \).
+
+From this point of view, thermometry becomes a problem of parameter estimation, where quantum estimation theory provides a powerful framework. The central quantity of interest is the \textit{Classical Fisher Information} (CFI). Given a system whose state $\mathcal{\varrho}(\xi)$ depends on some unknown parameter $\xi$ that we want to infer, the only way to obtain information is by performing measurements with a set of positive hermitian operators $\Pi=\{\Pi_m\}$. Then $p(\mathbf{x}|\xi)$ is the probability of obtaining the data set $\mathbf{x}$, being the value of the parameter exactly $\xi$. We can define the CFI of the set of measurements $\mathbf{\widehat\Pi}$ with respect to $\xi$ as
+\begin{equation}
+    \mathcal{F}_c(\mathbf{\widehat{\Pi}}, \xi) :=  \sum_{\mathbf{x}} \frac{(\partial_\xi p(\mathbf{x}|\xi))^2}{p(\mathbf{x}|\xi)}.
+    \label{fisher}
+\end{equation}
+This quantity captures the response of the probability distribution $p(\mathbf{x}|\xi)$ to small changes in the parameter $\xi$. In other words, it tells us how sensitive the measurements are to changes in the parameter, so our objective is to find which measurements maximize this CFI, in order to determine the exact real value of $\xi$ with maximum precision.
+Mathematically, the CFI bounds the precision of any unbiased estimator through the \textit{Cramér-Rao bound} (CRB), given $\mathcal{N}$ independent measurements:
+\begin{equation}
+\Delta \xi_{est}(\mathbf{\widehat{\Pi}}) \geq \frac{1}{\sqrt{\mathcal{N}\mathcal{F}_c(\mathbf{\widehat{\Pi}}, \xi)}},
+\end{equation}
+Thus, our first objective will be to identify which set of measures maximize the CFI when the temperature is our parameter. 
+
+If we chose to perform projective measurements onto the eigenstates of some observable ${O}$ to estimate $\xi$ we can adapt the CRB to this case and obtain (for $\mathcal{N}=1$) \cite{Holevo2011} \cite{Kraus1983} \cite{Toth2014}
+\begin{equation}\label{Delta O}
+\frac{\Delta {O}}{\left|\partial_\xi\langle{O}\rangle\right|} \geq \frac{1}{\sqrt{\mathcal{F}_c({O}, \xi)}},
+\end{equation}
+with $\langle{O}\rangle=\text{tr}\{{O}{\varrho}(\xi)\}$.
+
+However, in realistic situations, the optimal measurements may be impractical, in such cases, the \textit{Quantum Fisher Information} (QFI) allows us to benchmark alternative protocols. QFI is simply the optimization of the CFI over all possible measurements $\mathcal{F}(\xi) =\text{max}_{\mathbf{\widehat{\Pi}}}\mathcal{F}_c(\mathbf{\widehat{\Pi}},\xi)$ or alternatively \cite{QuantumStatisticalInference}
+\begin{equation}\label{Fisher Traza}
+    \mathcal{F}(\xi) := \text{tr}\{{\varrho}(\xi)\,{L}^2_\xi\}\,\,\,,
+\end{equation}
+where ${L}_\xi$ is the symmetric logarithmic derivative (SLD), defined implicitly by
+\begin{equation}
+    {L}_\xi {\varrho}(\xi) + {\varrho}(\xi) {L}_\xi := 2 \partial_{\xi'} {\varrho}(\xi') \big|_{\xi'=\xi}\,\,\,.
+    \label{SLD}
+\end{equation}
+and we can effectively use this equation to transform \eqref{Delta O} into
+\begin{equation}\label{2.7}
+\frac{\Delta {O}}{|\partial_{\xi}\langle {O} \rangle|} = \frac{\Delta {O}}{\text{cov}({O}, {L}_{\xi})} \geq \frac{1}{\Delta {L}_{\xi}} = \frac{1}{\sqrt{\mathcal{F}(\xi)}}
+\end{equation}
+where the covariance is defined by cov(A,B)$:=\langle AB + BA\rangle/2\,\,-\,\,\langle A\rangle \langle B\rangle$. The first equality follows directly from \eqref{SLD} using the satisfied condition that $\langle{L}_\xi\rangle = 0$, then we can apply the Cauchy-Schwartz inequality and \eqref{Fisher Traza} to obtain the last equality.
+
+Now from \eqref{2.7} one can easily see that the ultimate precision bound is obtained when ${O}={L}_\xi$. Thus we can establish that \emph{the optimal estimator of $\xi$ can be built from projective measurements onto the eigenbasis of the SLD of $\varrho(\xi)$}.
+
+However, this type of measurements aren't always experimentally available. Then, sub-optimal measurements can be quantified by their CFI and compared to the QFI to assess their thermometric power.
+
+\subsection{Equilibrium thermometry}\label{Equilibrium thermometers}
+Now that we have introduced the basic quantum estimation tools needed, we can tackle the basic problem of estimating the temperature of a system in thermal equilibrium. As we just saw, the key element to build optimal thermometers is to find the SLD of our state ${\varrho}(T)$ in \eqref{Gibbs operator}.
+
+We consider an N-dimensional system with Hamiltonian
+\begin{equation}
+     H = \sum_i^N \varepsilon_i\ket{i}\bra{i}
+\end{equation}
+in the equilibrium state \eqref{Gibbs operator} (this could also describe a thermalized probe in weak contact with the system). Then we can compute (detailed in \eqref{d_T varrho})
+\begin{equation}
+    \partial_T \varrho(T)=\frac{1}{T^2} \varrho(\langle  H \rangle - H)\,\, ,
+\end{equation}
+and use it with \eqref{SLD} to obtain the SLD for the thermal state (detailed in \eqref{SLD derivation}
+\begin{equation}
+    \frac{1}{2}\{{L}_T,\varrho\} =\frac{1}{T^2}\varrho(\langle H \rangle - H) \xrightarrow{} {L}_T = \frac{1}{T^2}( H - \langle  H \rangle)\,\,.
+\end{equation}
+So we can now establish that \emph{energy measurements are optimal for temperature estimation} with a system(probe) in thermal equilibrium(thermalized).
+
+With this result, we can introduce the calculated SLD in \eqref{Fisher Traza} to find that the QFI can be easily computed as
+\begin{align}
+    \mathcal{F}(T)&=\text{tr}[L_T^2\,\varrho(T)]=\text{tr}\left[\left(\frac{1}{T^2}( H - \langle  H \rangle\right)^2 \varrho(T)\right]\\
+    &=\frac{1}{T^4}\left(\text{tr}[ H ^2 \varrho(T)]-2\langle  H \rangle\,\text{tr}[ H \varrho(T)]+\langle  H \rangle^2\,\text{tr}[ \varrho(T)]\right)\\ \label{Fisher Gibbs}
+    &=\frac{1}{T^4}\left(\langle H^2 \rangle-\langle  H \rangle^2 \right)= \frac{\Delta^2H}{T^4} \,\,\,.
+\end{align}
+And the \textit{quantum}-CRB becomes
+\begin{equation}
+    \sqrt{\mathcal{N}}\Delta T\geq\frac{1}{\sqrt{\mathcal{F}(T)}}=\frac{T^2}{\Delta H}
+\end{equation}
+which for $\mathcal{N}=1$ becomes the uncertainty relation 
+\begin{equation}\label{Uncertainty BH}
+\Delta \beta  \Delta H \geq 1 \,\,.
+\end{equation}
+
+Now, the QFI strongly depends on the energy structure, so one can ask which energy spectrum maximizes this energy variance, we will see that in section \ref{Optimal spectrum}.
+
+\subsection{Thermometry out of equilibrium}
+We now need to tackle situations in which information about the temperature may be acquired only by local measurements on a small accessible fraction, called the \textit{probe}. Despite this, one can still extract information about the global temperature T by measuring the probe.
+
+Out of equilibrium, the Hamiltonian can be split as $H = H_p +  H_S +  H_I$, in probe, system and interaction terms respectively, and the reduced state of the probe, $ \varrho_p = \text{tr}_s \varrho$ does not necessarily follow a Gibbs distribution, specially if the interactions are strong. As a result, the uncertainty relation \eqref{Uncertainty BH} does no longer hold. Nevertheless, it can be adapted to strong interactions by modifying the internal energy of the probe, and therefore the energy variance, this is explicitly derived in \ref{Modified Uncertainty}.
+
+Interestingly, this strong probe–system interactions, often avoided in weak-coupling thermometry, can be used as a thermometric resource. While such interactions complicate the dynamics and introduce correlations, they can reshape the probe's effective spectrum in a way that enhances thermal sensitivity. In fact, when the strength of the interaction increases, energy measurements become less informative about the temperature of the system, since the state of the probe is no longer a Gibbs state because of the interactions.  This affects to the construction of the SLD, which is implicitly defined by the state of the probe by \eqref{SLD}, and by extension also affects to the optimal measurements. See \cite{Correa2015} for an example where another observable, more sensitive to temperature changes in the $T\ll 1$ regime, is found.
+
+In this work, the interactions will be restricted to thermalising conditions, described in section \ref{Thermalising}, where the probe is weakly coupled to the system and strong interactions are not considered.
+
+\section{Dynamical Quantum Thermometry}\label{Dynamical Thermometry}
+
+In this section we focus on the out-of-equilibrium evolution of a quantum probe coupled to a thermal reservoir. In this approach, the probe is initially prepared in a given state \(\rho_0 \), and evolves under a temperature-dependent quantum channel $\mathcal{E}_T^t$, and measured at some finite time t.
+
+For example, when the system evolves under \textit{coherent unitary dynamics}, typically governed by temperature-dependent Hamiltonian, the system does not thermalise with the environment. Instead, it retains coherence throughout the process. This is useful for short interaction times as it avoids the loss of information through dissipation, and we can obtain a $t^2$-scaling of the QFI [paper thermalization]. However, in the limit of large $t$ the unitary evolution is hard to accomplish, and \textit{steady-state metrology} offers an alternative framework.
+
+Another used protocol is \textit{interferometric thermometry}, where the probe (often a qubit) acquires a dynamical phase during the (weak) interaction with the environment. This gained phase encodes temperature information of the bath, and it has proven to be very sensitive for low-temperature thermometry [see \cite{Stace2010}\cite{Jarzyna2015}\cite{MartinMartinez2013}\cite{Sabin2014} for exemples].
+
+Finally we could also apply \textit{external control fields} to the probe or dynamically switch the probe-bath coupling. These settings are used to enhance the sensitivity of the probe to the bath temperature, by choosing more precisely the temperature range of interest or accelerating convergence to optimal states. 
+
+In what follows we will explore in detail the framework of thermalising dynamics, where the probe is weakly coupled to a thermal bath and its evolution is described by the theory of Open Quantum Systems.
+
+\subsection{Open Quantum Systems}\label{Open Quantum Systems}
+Before analyzing how thermometry is described under thermalising dynamics, we will introduce a few theoretical concepts about Open Quantum Systems, and the elements used in the next section.
+In general terms, an open system is a quantum system $S$ which is coupled to another quantum system $B$ called the environment or reservoir, so both are considered subsystems of the combined total system $B+S$, which is considered closed. The total system hamiltonian $H$ describes how the total density matrix $\varrho(t)$ evolves in time, through the \textit{von Neumann equation}
+\begin{equation}\label{von Neumann - T}
+    \frac{d}{dt}\varrho(t)=-i\left[ H(t), \varrho(t)\right]\,.
+\end{equation}
+However, we are interested in the system $S$ evolution. If we approximate $\varrho(t)\approx \varrho_s(t)\otimes\varrho_B$, we have that $\varrho_s=\text{tr}_B\varrho$ , where $\text{tr}_X$ means the partial trace on the subsystem X. Thus, \textit{reducing} the equation to the system $S$ we obtain
+\begin{equation}\label{von Neumann - S}
+    \frac{d}{dt}\varrho_s(t)=-i\,\text{tr}_B\left[ H(t), \varrho(t)\right]\, .
+\end{equation}
+In general the dynamics of the reduced system defined by this two exact equations will be quite involved. Nevertheless, under the condition that the thermalization time is much longer than any other time scale, we formulate the reduced system dynamics in terms of a quantum dynamical semigroup. In this framework the evolution of $\varrho_s$ is described by $V(t)$, the elements of the semigroup 
+\begin{equation}
+    \varrho_s(0) \longmapsto \varrho_s(t)=V(t)\varrho_s(0) \equiv \text{tr}\{U(t,0)[\varrho_s(0)\otimes\varrho_B]U^\dagger(t,0)\}\,\,,
+\end{equation}
+where $U(t,t_0)=\exp[-iH(t-t_0)]$. 
+
+Under certain mathematical conditions \cite{breuer2002open} a linear map $\mathcal{L}$, the generator of the semigroup, allows us to represent the elements in the exponential form $V(t)=\exp[\mathcal{L}t]$, what yields to the \textit{Markovian quantum master equation} or \textit{Lindblad equation}
+\begin{equation}\label{Lindblad}
+    \frac{d}{dt}\varrho_s(t)=\mathcal{L}\varrho_s(t)\,.
+\end{equation}
+In the most general form, the generator, often called \textit{Lindbladian}, is defined as
+\begin{equation}
+    \mathcal{L} \varrho_s = -i [H, \varrho_s] + \sum_{k=1}^{N^2-1} \gamma_k \left( A_k \varrho_s A_k^\dagger - \frac{1}{2} A_k^\dagger A_k \varrho_s - \frac{1}{2} \varrho_s A_k^\dagger A_k \right)
+    \label{Superoperator}
+\end{equation}
+where the set of operators $\{A_k\}$, known as Lindblad operators, can be founded by the decomposition of $H_I^S$, that is the system part of of $H_I^S$, i.e $H_I = H_I^S \otimes H_I^B$, and they encode the dissipative effects of the interaction system-bath. $\gamma_k$ play the role of relaxation rates for the different decay modes of the open system.
+
+\subsection{Thermometry under thermalising dynamics}\label{Thermalising}
+Considering now that the environment is a heat bath at inverse temperature $\beta$, in the absence of external time-dependent fields, we expect the Gibbs state
+\begin{equation}\label{rho th}
+    \varrho_{th}=\frac{e^{-\beta H_s}}{\text{tr}_S [e^{-\beta H_s}]}
+\end{equation}
+to be a stationary solution of the equation \eqref{Lindblad}. It can be shown then that for any initial state the system returns to equilibrium
+\begin{equation}
+    \varrho_s(t)\xrightarrow{} \varrho_{th}\,\,,\,\, \text{for}\,\,t\rightarrow +\infty
+\end{equation}
+since the quantum dynamical semigroup has the property of being ergodic.
+
+If the spectrum of the system Hamiltonian $H_s=\sum_n \varepsilon_n\ket{n}\bra{n}$ is non-degenerate it gives a closed equation of motion for the populations
+\begin{equation}
+    P(n,t)=\bra{n}\varrho_s(t)\ket{n}
+\end{equation} 
+of the $\ket{n}$ eigenstate. Thus, the equation for the diagonals of the density matrix in the eigenbasis of \( H_s \) and the populations are governed by the equation
+\begin{equation}\label{Pauli Equation}
+\frac{d}{dt}P(n,t) = \sum_m \left[ W_{m\to n} P(m,t) - W_{n\to m} P(n,t) \right]. 
+\end{equation}
+This equation is of the form of the classical discrete master equation with time-independent transition rates given by
+\begin{equation}\label{rates}
+W_{m\to n} = \sum_{\alpha,\beta} \gamma_{\alpha \beta}(\varepsilon_m - \varepsilon_n) \langle m | A_\alpha | n \rangle \langle n | A_\beta | m \rangle.
+\end{equation}
+For thermal equilibrium systems (with NO degeneracy) in the thermodynamic limit this rates \eqref{rates} fulfill the condition \cite{breuer2002open}
+\begin{equation}\label{Detailed Balance}
+W_{n\to m} \exp(-\beta \varepsilon_n) = W_{m\to n} \exp(-\beta \varepsilon_m) \  ,
+\end{equation}
+which is known as the condition of \textit{detailed balance}, and which leads to the conclusion that the equilibrium populations follow the Boltzmann distribution
+\begin{equation}
+P(n,t = t_{eq}) = \text{const} \times \exp(-\beta \varepsilon_n) 
+\end{equation}
+over the energy eigenvalues \( \varepsilon_n \). In other words, that the state in equilibrium is described by the Gibbs state \eqref{rho th}.

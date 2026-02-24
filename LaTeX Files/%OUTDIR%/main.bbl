@@ -1,0 +1,803 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{mehboudi2019thermometry}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b67cd4a429ba38e57786379faa441e74}{%
+           family={Mehboudi},
+           familyi={M\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9511e09e4b569feb7f5bc006b60f2171}{%
+           family={Sanpera},
+           familyi={S\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=edc2666ea4d3eec275f905f43c18b3e1}{%
+           family={Correa},
+           familyi={C\bibinitperiod},
+           given={Luis\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{fullhash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{fullhashraw}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{bibnamehash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{authorbibnamehash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{authornamehash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{authorfullhash}{de1f9b1bf008ed1aaf9c522e84799902}
+      \strng{authorfullhashraw}{de1f9b1bf008ed1aaf9c522e84799902}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{J. Phys. A: Math. Theor.}
+      \field{number}{30}
+      \field{title}{Thermometry in the quantum regime: Recent theoretical progress}
+      \field{volume}{52}
+      \field{year}{2019}
+      \field{pages}{303001}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1751-8121/ab2828
+      \endverb
+      \verb{eprint}
+      \verb 1811.03988
+      \endverb
+    \endentry
+    \entry{correa2015individual}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=edc2666ea4d3eec275f905f43c18b3e1}{%
+           family={Correa},
+           familyi={C\bibinitperiod},
+           given={Luis\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b67cd4a429ba38e57786379faa441e74}{%
+           family={Mehboudi},
+           familyi={M\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d41142b7c9285af2497324d1f80a6531}{%
+           family={Adesso},
+           familyi={A\bibinitperiod},
+           given={Gerardo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=9511e09e4b569feb7f5bc006b60f2171}{%
+           family={Sanpera},
+           familyi={S\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d718f5615799c4bf750b8acb7f3fe55c}
+      \strng{fullhash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{fullhashraw}{bbcfa42c23c742882a467635543db8c6}
+      \strng{bibnamehash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authorbibnamehash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authornamehash}{d718f5615799c4bf750b8acb7f3fe55c}
+      \strng{authorfullhash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authorfullhashraw}{bbcfa42c23c742882a467635543db8c6}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{quant-ph}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{number}{22}
+      \field{title}{Individual quantum probes for optimal thermometry}
+      \field{volume}{114}
+      \field{year}{2015}
+      \field{pages}{220405}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.114.220405
+      \endverb
+      \verb{eprint}
+      \verb 1411.2437
+      \endverb
+    \endentry
+    \entry{abiuso2022optimal}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=7ca14a41b790019f9bfd54b9be9728db}{%
+           family={Abiuso},
+           familyi={A\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=66a221a491b35f904e2423c9cf8ae7a1}{%
+           family={Erdman},
+           familyi={E\bibinitperiod},
+           given={Paolo\bibnamedelima Andrea},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d287747dc2d17a2ca6d2d56d30a6501a}{%
+           family={Ronen},
+           familyi={R\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5857f5ccdcf3ecbd7dd77ba4c725a093}{%
+           family={Noé},
+           familyi={N\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+        {{hash=7160bd84d4576933db99e38a0ae97ef6}{%
+           family={Haack},
+           familyi={H\bibinitperiod},
+           given={Géraldine},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1ec82c495ceeb691d328967f18bc3d23}{%
+           family={Perarnau-Llobet},
+           familyi={P\bibinithyphendelim L\bibinitperiod},
+           given={Martí},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{95f9877c6d2598c294ccf1d435645bb1}
+      \strng{fullhash}{6ea753e31b7e8840671f4eac4fde99ba}
+      \strng{fullhashraw}{6ea753e31b7e8840671f4eac4fde99ba}
+      \strng{bibnamehash}{6ea753e31b7e8840671f4eac4fde99ba}
+      \strng{authorbibnamehash}{6ea753e31b7e8840671f4eac4fde99ba}
+      \strng{authornamehash}{95f9877c6d2598c294ccf1d435645bb1}
+      \strng{authorfullhash}{6ea753e31b7e8840671f4eac4fde99ba}
+      \strng{authorfullhashraw}{6ea753e31b7e8840671f4eac4fde99ba}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quantum Science and Technology}
+      \field{number}{2}
+      \field{title}{Optimal thermometers with spin networks}
+      \field{volume}{6}
+      \field{year}{2021}
+      \field{pages}{024006}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/2058-9565/ad37d3
+      \endverb
+      \verb{urlraw}
+      \verb https://iopscience.iop.org/article/10.1088/2058-9565/ad37d3
+      \endverb
+      \verb{url}
+      \verb https://iopscience.iop.org/article/10.1088/2058-9565/ad37d3
+      \endverb
+    \endentry
+    \entry{Binder2018}{book}{}{}
+      \name{editor}{5}{}{%
+        {{hash=463fb981218536fdadc8d3f106126b32}{%
+           family={Binder},
+           familyi={B\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=edc2666ea4d3eec275f905f43c18b3e1}{%
+           family={Correa},
+           familyi={C\bibinitperiod},
+           given={Luis\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b2283e26f29ee3d76c9354deb486064e}{%
+           family={Gogolin},
+           familyi={G\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3a5aeb374d116d318106e902744c66dc}{%
+           family={Anders},
+           familyi={A\bibinitperiod},
+           given={Janet},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d41142b7c9285af2497324d1f80a6531}{%
+           family={Adesso},
+           familyi={A\bibinitperiod},
+           given={Gerardo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e3db6bd69871d915cfb451a56844edd3}
+      \strng{fullhash}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \strng{fullhashraw}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \strng{bibnamehash}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \strng{editorbibnamehash}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \strng{editornamehash}{e3db6bd69871d915cfb451a56844edd3}
+      \strng{editorfullhash}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \strng{editorfullhashraw}{b9ac45bb0b85af3e7bec1ef7291c30e7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-319-99046-0}
+      \field{series}{Fundamental Theories of Physics}
+      \field{title}{Thermodynamics in the Quantum Regime}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1007/978-3-319-99046-0
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/978-3-319-99046-0
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/978-3-319-99046-0
+      \endverb
+    \endentry
+    \entry{Holevo2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=c990e31260ccbcea080a9762020516d7}{%
+           family={Holevo},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{c990e31260ccbcea080a9762020516d7}
+      \strng{fullhash}{c990e31260ccbcea080a9762020516d7}
+      \strng{fullhashraw}{c990e31260ccbcea080a9762020516d7}
+      \strng{bibnamehash}{c990e31260ccbcea080a9762020516d7}
+      \strng{authorbibnamehash}{c990e31260ccbcea080a9762020516d7}
+      \strng{authornamehash}{c990e31260ccbcea080a9762020516d7}
+      \strng{authorfullhash}{c990e31260ccbcea080a9762020516d7}
+      \strng{authorfullhashraw}{c990e31260ccbcea080a9762020516d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Probabilistic and Statistical Aspects of Quantum Theory}
+      \field{volume}{1}
+      \field{year}{2011}
+      \verb{doi}
+      \verb 10.1007/978-88-7642-378-9
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-88-7642-378-9
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-88-7642-378-9
+      \endverb
+    \endentry
+    \entry{Kraus1983}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=8c8e33090af70e0e4c86122824927755}{%
+           family={Kraus},
+           familyi={K\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8c8e33090af70e0e4c86122824927755}
+      \strng{fullhash}{8c8e33090af70e0e4c86122824927755}
+      \strng{fullhashraw}{8c8e33090af70e0e4c86122824927755}
+      \strng{bibnamehash}{8c8e33090af70e0e4c86122824927755}
+      \strng{authorbibnamehash}{8c8e33090af70e0e4c86122824927755}
+      \strng{authornamehash}{8c8e33090af70e0e4c86122824927755}
+      \strng{authorfullhash}{8c8e33090af70e0e4c86122824927755}
+      \strng{authorfullhashraw}{8c8e33090af70e0e4c86122824927755}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{States, Effects, and Operations: Fundamental Notions of Quantum Theory}
+      \field{year}{1983}
+      \verb{doi}
+      \verb 10.1007/3-540-12732-1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/3-540-12732-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/3-540-12732-1
+      \endverb
+    \endentry
+    \entry{Toth2014}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=a1488958fb0e40a1c1f690a320553ce7}{%
+           family={Tóth},
+           familyi={T\bibinitperiod},
+           given={Géza},
+           giveni={G\bibinitperiod}}}%
+        {{hash=985f00fb156e911f403433a647a4d8c6}{%
+           family={Apellaniz},
+           familyi={A\bibinitperiod},
+           given={Iagoba},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{fullhash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{fullhashraw}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{bibnamehash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{authorbibnamehash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{authornamehash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{authorfullhash}{1942c981163bf4fe80e689dfc0d69de0}
+      \strng{authorfullhashraw}{1942c981163bf4fe80e689dfc0d69de0}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physics A: Mathematical and Theoretical}
+      \field{number}{42}
+      \field{title}{Quantum metrology from a quantum information science perspective}
+      \field{volume}{47}
+      \field{year}{2014}
+      \field{pages}{424006}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1751-8113/47/42/424006
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/1751-8113/47/42/424006
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/1751-8113/47/42/424006
+      \endverb
+    \endentry
+    \entry{QuantumStatisticalInference}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=248498e14015882844c917d0bcc0f0ec}{%
+           family={Audenaert},
+           familyi={A\bibinitperiod},
+           given={Koenraad},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{fullhash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{fullhashraw}{248498e14015882844c917d0bcc0f0ec}
+      \strng{bibnamehash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{authorbibnamehash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{authornamehash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{authorfullhash}{248498e14015882844c917d0bcc0f0ec}
+      \strng{authorfullhashraw}{248498e14015882844c917d0bcc0f0ec}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Imperial College London}
+      \field{note}{Lecture Notes, available at \url{https://www.imperial.ac.uk/media/imperial-college/research-centres-and-groups/theoretical-physics/msc/current/QuantumStatisticalInference.pdf}}
+      \field{title}{Quantum Statistical Inference}
+      \field{year}{2014}
+    \endentry
+    \entry{Correa2015}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=edc2666ea4d3eec275f905f43c18b3e1}{%
+           family={Correa},
+           familyi={C\bibinitperiod},
+           given={Luis\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b67cd4a429ba38e57786379faa441e74}{%
+           family={Mehboudi},
+           familyi={M\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d41142b7c9285af2497324d1f80a6531}{%
+           family={Adesso},
+           familyi={A\bibinitperiod},
+           given={Gerardo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=9511e09e4b569feb7f5bc006b60f2171}{%
+           family={Sanpera},
+           familyi={S\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{d718f5615799c4bf750b8acb7f3fe55c}
+      \strng{fullhash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{fullhashraw}{bbcfa42c23c742882a467635543db8c6}
+      \strng{bibnamehash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authorbibnamehash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authornamehash}{d718f5615799c4bf750b8acb7f3fe55c}
+      \strng{authorfullhash}{bbcfa42c23c742882a467635543db8c6}
+      \strng{authorfullhashraw}{bbcfa42c23c742882a467635543db8c6}
+      \field{extraname}{2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review Letters}
+      \field{number}{22}
+      \field{title}{Low-temperature thermometry can be enhanced by strong coupling}
+      \field{volume}{114}
+      \field{year}{2015}
+      \field{pages}{220405}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.114.220405
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1103/PhysRevLett.114.220405
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1103/PhysRevLett.114.220405
+      \endverb
+    \endentry
+    \entry{Stace2010}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=967a1377136d2c8851b27c4af767bb7b}{%
+           family={Stace},
+           familyi={S\bibinitperiod},
+           given={T.\bibnamedelimi M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{fullhash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{fullhashraw}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{bibnamehash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{authorbibnamehash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{authornamehash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{authorfullhash}{967a1377136d2c8851b27c4af767bb7b}
+      \strng{authorfullhashraw}{967a1377136d2c8851b27c4af767bb7b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review A}
+      \field{number}{1}
+      \field{title}{Quantum limits of thermometry}
+      \field{volume}{82}
+      \field{year}{2010}
+      \field{pages}{011611}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevA.82.011611
+      \endverb
+      \verb{urlraw}
+      \verb https://journals.aps.org/pra/abstract/10.1103/PhysRevA.82.011611
+      \endverb
+      \verb{url}
+      \verb https://journals.aps.org/pra/abstract/10.1103/PhysRevA.82.011611
+      \endverb
+    \endentry
+    \entry{Jarzyna2015}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=b8479e5326d978fe1ca4dd845ae1359d}{%
+           family={Jarzyna},
+           familyi={J\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=14f755c5ad70673b9d41e7248adf3309}{%
+           family={Zwierz},
+           familyi={Z\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{fullhash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{fullhashraw}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{bibnamehash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{authorbibnamehash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{authornamehash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{authorfullhash}{f5735e5ea71193b74cbb191a17cb6115}
+      \strng{authorfullhashraw}{f5735e5ea71193b74cbb191a17cb6115}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review A}
+      \field{number}{3}
+      \field{title}{Quantum interferometry with and without an external phase reference}
+      \field{volume}{92}
+      \field{year}{2015}
+      \field{pages}{032112}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevA.92.032112
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevA.92.032112
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevA.92.032112
+      \endverb
+    \endentry
+    \entry{MartinMartinez2013}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=fe75983a53210132683c70d755e0b12f}{%
+           family={Martín-Martínez},
+           familyi={M\bibinithyphendelim M\bibinitperiod},
+           given={Eduardo},
+           giveni={E\bibinitperiod}}}%
+        {{hash=0182f96442417baf7401beb198eaa27b}{%
+           family={Dragan},
+           familyi={D\bibinitperiod},
+           given={Andrzej},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c98acf20a7b8f10790eb3c08b9365653}{%
+           family={Mann},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=54a5f84e89279344953805a384507cb3}{%
+           family={Fuentes},
+           familyi={F\bibinitperiod},
+           given={Ivette},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab64324d5d6140ed98fffdfc1f494f50}
+      \strng{fullhash}{a846e1f3adce5a7e7b4931181d341fd0}
+      \strng{fullhashraw}{a846e1f3adce5a7e7b4931181d341fd0}
+      \strng{bibnamehash}{a846e1f3adce5a7e7b4931181d341fd0}
+      \strng{authorbibnamehash}{a846e1f3adce5a7e7b4931181d341fd0}
+      \strng{authornamehash}{ab64324d5d6140ed98fffdfc1f494f50}
+      \strng{authorfullhash}{a846e1f3adce5a7e7b4931181d341fd0}
+      \strng{authorfullhashraw}{a846e1f3adce5a7e7b4931181d341fd0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{New Journal of Physics}
+      \field{title}{Berry phase quantum thermometer}
+      \field{volume}{15}
+      \field{year}{2013}
+      \field{pages}{053036}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1367-2630/15/5/053036
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/1367-2630/15/5/053036
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/1367-2630/15/5/053036
+      \endverb
+    \endentry
+    \entry{Sabin2014}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=b3a0d024eb31a6a0927aef0cae7dad1f}{%
+           family={Sabín},
+           familyi={S\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=96e1257272056868ce9d81c6ee088f29}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=247d7d84e033f3d23239ab77963b84db}{%
+           family={Hackermüller},
+           familyi={H\bibinitperiod},
+           given={Lucia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=54a5f84e89279344953805a384507cb3}{%
+           family={Fuentes},
+           familyi={F\bibinitperiod},
+           given={Ivette},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{335238c89001118747a4b0e0c9ce9eee}
+      \strng{fullhash}{77f33e691a230ef4fbd4b222e4022425}
+      \strng{fullhashraw}{77f33e691a230ef4fbd4b222e4022425}
+      \strng{bibnamehash}{77f33e691a230ef4fbd4b222e4022425}
+      \strng{authorbibnamehash}{77f33e691a230ef4fbd4b222e4022425}
+      \strng{authornamehash}{335238c89001118747a4b0e0c9ce9eee}
+      \strng{authorfullhash}{77f33e691a230ef4fbd4b222e4022425}
+      \strng{authorfullhashraw}{77f33e691a230ef4fbd4b222e4022425}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{title}{Impurities as a quantum thermometer for a Bose–Einstein condensate}
+      \field{volume}{4}
+      \field{year}{2014}
+      \field{pages}{6436}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/srep06436
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/srep06436
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/srep06436
+      \endverb
+    \endentry
+    \entry{breuer2002open}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=44be9d24e3ede84bee3691a7a300e5db}{%
+           family={Breuer},
+           familyi={B\bibinitperiod},
+           given={Heinz-Peter},
+           giveni={H\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=4b215190f542b12fd214896e21eff64b}{%
+           family={Petruccione},
+           familyi={P\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Oxford}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{fullhash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{fullhashraw}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{bibnamehash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{authorbibnamehash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{authornamehash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{authorfullhash}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \strng{authorfullhashraw}{fc984943b8bdb1c48eb687b8f74fd49b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780199213900}
+      \field{title}{The Theory of Open Quantum Systems}
+      \field{year}{2002}
+    \endentry
+    \entry{SupplementalCorrea2015}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{note}{See Supplemental Material at \url{http://link.aps.org/supplemental/10.1103/PhysRevLett.114.220405} for further details.}
+    \endentry
+    \entry{puig2024dynamical}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=ba94654a9234a745dd435d5ef22a553c}{%
+           family={Puig},
+           familyi={P\bibinitperiod},
+           given={Ricard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e114706124b2ecd3ac60067008a26d7b}{%
+           family={Sekatski},
+           familyi={S\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod}}}%
+        {{hash=66a221a491b35f904e2423c9cf8ae7a1}{%
+           family={Erdman},
+           familyi={E\bibinitperiod},
+           given={Paolo\bibnamedelima Andrea},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=7ca14a41b790019f9bfd54b9be9728db}{%
+           family={Abiuso},
+           familyi={A\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2f0548e22ea4b0df53a9b0255d8d5533}{%
+           family={Calsamiglia},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1ec82c495ceeb691d328967f18bc3d23}{%
+           family={Perarnau-Llobet},
+           familyi={P\bibinithyphendelim L\bibinitperiod},
+           given={Martí},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8348ab1a7f395fcba4f10cee9611e033}
+      \strng{fullhash}{f88128ddb671048ebcb53bee3507122e}
+      \strng{fullhashraw}{f88128ddb671048ebcb53bee3507122e}
+      \strng{bibnamehash}{f88128ddb671048ebcb53bee3507122e}
+      \strng{authorbibnamehash}{f88128ddb671048ebcb53bee3507122e}
+      \strng{authornamehash}{8348ab1a7f395fcba4f10cee9611e033}
+      \strng{authorfullhash}{f88128ddb671048ebcb53bee3507122e}
+      \strng{authorfullhashraw}{f88128ddb671048ebcb53bee3507122e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{note}{https://arxiv.org/abs/2412.02754}
+      \field{title}{From dynamical to steady-state many-body metrology: Precision limits and their attainability with two-body interactions}
+      \field{volume}{2412.02754}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2412.02754
+      \endverb
+    \endentry
+    \entry{AntoSztrikacs2024}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2ec297534d9af8089789d27ad41064f4}{%
+           family={Anto-Sztrikacs},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f2bceae74a49918e90f037041622ec7e}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={H.\bibnamedelimi J.\bibnamedelimi D.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=c46a6e5e5580317a1857467da6d50ab8}{%
+           family={Nazir},
+           familyi={N\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3323d1a077acef2024be66a0cc9aa15c}{%
+           family={Segal},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e196c7e258604c36b2fa656df3c43f75}
+      \strng{fullhash}{5e7db03dc4be78a06bbdcf0136226922}
+      \strng{fullhashraw}{5e7db03dc4be78a06bbdcf0136226922}
+      \strng{bibnamehash}{5e7db03dc4be78a06bbdcf0136226922}
+      \strng{authorbibnamehash}{5e7db03dc4be78a06bbdcf0136226922}
+      \strng{authornamehash}{e196c7e258604c36b2fa656df3c43f75}
+      \strng{authorfullhash}{5e7db03dc4be78a06bbdcf0136226922}
+      \strng{authorfullhashraw}{5e7db03dc4be78a06bbdcf0136226922}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review A}
+      \field{title}{Bypassing thermalization timescales in temperature estimation using prethermal probes}
+      \field{volume}{109}
+      \field{year}{2024}
+      \field{pages}{L060201}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevA.109.L060201
+      \endverb
+    \endentry
+    \entry{mok2020optimal}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=4330659dfb8a2f4cc9b749ef50aafb88}{%
+           family={Mok},
+           familyi={M\bibinitperiod},
+           given={Wai-Keong},
+           giveni={W\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=7252fb0ec40d2cf015f62bea2c3195be}{%
+           family={Bharti},
+           familyi={B\bibinitperiod},
+           given={Kishor},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c694837b1d821eb753b9d91ea74b3f3c}{%
+           family={Kwek},
+           familyi={K\bibinitperiod},
+           given={Leong-Chuan},
+           giveni={L\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=b86017de89b27f822bf938fdf7e54517}{%
+           family={Bayat},
+           familyi={B\bibinitperiod},
+           given={Abolfazl},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{be18bf83ccb1ccf4a4863d6afbadb8e7}
+      \strng{fullhash}{7018e75afa1db4a230f46e1ae0f92908}
+      \strng{fullhashraw}{7018e75afa1db4a230f46e1ae0f92908}
+      \strng{bibnamehash}{7018e75afa1db4a230f46e1ae0f92908}
+      \strng{authorbibnamehash}{7018e75afa1db4a230f46e1ae0f92908}
+      \strng{authornamehash}{be18bf83ccb1ccf4a4863d6afbadb8e7}
+      \strng{authorfullhash}{7018e75afa1db4a230f46e1ae0f92908}
+      \strng{authorfullhashraw}{7018e75afa1db4a230f46e1ae0f92908}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{note}{https://arxiv.org/abs/2010.14200}
+      \field{title}{Optimal probes for global quantum thermometry}
+      \field{volume}{2010.14200}
+      \field{year}{2020}
+      \true{nocite}
+      \verb{eprint}
+      \verb 2010.14200
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

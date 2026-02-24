@@ -1,0 +1,37 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Structure}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Theoretical framework}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Thermometry in the Quantum Regime.}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Equilibrium thermometry}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Thermometry out of equilibrium}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Dynamical Quantum Thermometry}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Open Quantum Systems}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Thermometry under thermalising dynamics}{7}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}Optimal Quantum Thermometry}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Optimal spectrum for equilibrium thermometry}{8}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Fisher Information}{8}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Heat Capacity}{10}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Sub-Optimal spin-network thermometers}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Star Model}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}All-To-All Model}{12}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}Transient regime: thermalization and steady state}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Relaxation to equilibrium}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Energy and Fisher Information during thermalization}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Optimization trade-offs}{17}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary}{20}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Outlook (or future and actual work)}{20}{section.5.2}%
+\contentsline {chapter}{\numberline {A}Detailed derivations}{21}{appendix.A}%
+\setcounter {tocdepth}{0}
+\contentsline {section}{\numberline {A.1}$\partial _T$ of the Gibbs state}{21}{section.A.1}%
+\contentsline {section}{\numberline {A.2}SLD of the Gibbs state}{21}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Rewriting the uncertainty relation \ref {Uncertainty BH}}{21}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Classical Fisher Information of a Gibbs state}{22}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Optimal gap}{23}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Partition function $\EuScript {Z}$ for the Star Model}{24}{section.A.6}%
+\contentsline {section}{\numberline {A.7}Detailed balance check}{24}{section.A.7}%
+\contentsline {chapter}{\numberline {B}All-to-All model data}{25}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Python Codes}{26}{appendix.C}%
+\contentsline {chapter}{References}{30}{lstnumber.C.2.28}%

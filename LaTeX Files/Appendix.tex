@@ -1,0 +1,273 @@
+\chapter{Detailed derivations}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A.\arabic{equation}}
+\section{$\partial_T$ of the Gibbs state}\label{d_T varrho}
+
+Using $\hat\varrho(\beta)=\frac{e^{-\beta H}}{Z}$ with $Z = \text{tr}(e^{-\beta H})$
+\begin{align}
+    \frac{\partial\varrho}{\partial T}&=-\frac{1}{T^2}\frac{\partial\varrho}{\partial \beta}\\
+    &\rightarrow  \frac{\partial\varrho}{\partial \beta}=\frac{-He^{-\beta H}Z+e^{-\beta H}\cdot\text{tr}(He^{-\beta H})}{Z^2}=\frac{1}{Z}(-He^{-\beta H}+\langle H \rangle e^{-\beta H}) \\ 
+    &\hspace{1.2cm}= {\varrho} (\langle H \rangle-H)\\
+    \frac{\partial\varrho}{\partial T}&=\frac{1}{T^2}\varrho(H-\langle H \rangle) 
+\end{align}
+
+\section{SLD of the Gibbs state}\label{SLD derivation}
+
+We have from \eqref{d_T varrho} and from the definition of the SLD in \eqref{SLD}, that
+\begin{align}\label{5}
+    \frac{\partial\varrho}{\partial T}&=\frac{1}{T^2}\varrho(H-\langle H \rangle)\\ \label{6}
+    \frac{\partial\varrho}{\partial T}&=\frac{1}{2}\{L_T,\varrho\}
+\end{align}
+So to determine $L_T$ we try an ansatz: $L_T = \alpha(H-\langle H \rangle)$ where $\alpha$ is some constant, and we plug this ansatz into the SLD definition:
+\begin{align}
+    \frac{1}{2}\{\hat L_T,\hat\varrho\}=\frac{\alpha}{2}\{H-\langle H \rangle , \hat\varrho\}=\alpha(H\hat\varrho-\langle H \rangle\hat\varrho)
+\end{align}
+Where we have used that $\langle H \rangle$ is a scalar so it commutes with everything, and $\hat\varrho$ and $H$ also commute since $\hat\varrho$ can be understood as an exponential map of $H$, and we know that $[\hat{H}, f(\hat{H})]=0$. Now comparing \eqref{5} and \eqref{6} we can see that $\alpha=1/T^2$, thus the SLD 
+\begin{equation}
+    \hat L_T=\frac{1}{T^2}(\hat{H}-\langle H \rangle )
+\end{equation}
+
+\section{Rewriting the uncertainty relation \ref{Uncertainty BH}}\label{Modified Uncertainty}
+
+
+The ‘potential-of-mean-force’ approach consists in adopting the modified partition function
+\begin{equation}
+\mathcal{Z}_p := \frac{\mathrm{Tr}\, e^{-\beta(\hat{H}_p + \hat{H}_S + \hat{H}_I)}}{\mathrm{Tr}\, e^{-\beta \hat{H}_S}}
+\end{equation}
+for the probe. And its internal energy becomes
+\begin{equation}
+- \partial_\beta \log \mathcal{Z}_p = \langle \hat{H} \rangle - \langle \hat{H}_S \rangle = \langle \hat{E}_p^\ast \rangle,
+\end{equation}
+with
+\begin{align}
+\hat{E}_p^\ast &:= \partial_\beta \left[ \beta \hat{H}_p^\ast(\beta) \right],  \\
+\hat{H}_p^\ast(\beta) &:= -\beta^{-1} \log \frac{\mathrm{Tr}_S \exp \left[ -\beta (\hat{H}_p + \hat{H}_S + \hat{H}_I) \right]}{\mathrm{Tr} \exp(-\beta \hat{H}_S)},
+\end{align}
+so \( \hat{\varrho}_P = \mathcal{Z}_p^{-1} e^{-\beta \hat{H}_p^\ast} \). The variance of the modified energy operator \( \hat{E}_p^\ast \), can be separated as the sum of two contributions
+\begin{equation}
+(\Delta \hat{E}_p^\ast)^2 = Q_\alpha(\hat{\varrho}_p, \hat{E}_p^\ast) + C_\alpha(\hat{\varrho}_p, \hat{E}_p^\ast),
+\end{equation}
+meaning its ‘quantum’ and ‘classical’ parts, respectively. In particular,
+\begin{equation}
+Q_\alpha(\hat{\varrho}, \hat{A}) := -\frac{1}{2} \mathrm{Tr} \left( \left[ \hat{A}, \hat{\varrho}^\alpha \right] \left[ \hat{A}, \hat{\varrho}^{1 - \alpha} \right] \right)
+\end{equation}
+is known as the Wigner–Yanase skew information, where \( \alpha \in (0,1) \). Then, the decomposition of \( (\Delta \hat{A})^2 \) into quantum and classical part is not unique. The relation between \( (\Delta \hat{E}_p^\ast)^2 \) and \( \mathcal{F}(\beta, \hat{E}_p^\ast) \) can be established by noticing that
+\begin{equation} \label{ñ}
+C(\hat{\varrho}P, \hat{E}_P^\ast) := \int_0^1 d\alpha\, C\alpha(\hat{\varrho}_P, \hat{E}_P^\ast) \geq \mathcal{F}(\beta, \hat{E}_P^\ast)
+\end{equation}
+thus, from the Cramér–Rao bound, \( (\Delta \beta)^2 \geq C(\hat{\varrho}P, \hat{E}_P^\ast)^{-1} = \left[(\Delta \hat{E}_P^\ast)^2 - Q\alpha(\hat{\varrho}_P, \hat{E}_P^\ast) \right]^{-1} \), where \( Q(\cdot, \cdot) \) is defined like \( C(\cdot, \cdot) \) in equation \eqref{ñ}. As a result we obtain
+\begin{equation}
+\Delta \beta \geq \frac{1}{\sqrt{(\Delta \hat{E}P^\ast)^2 - Q\alpha(\hat{\varrho}_P, \hat{E}_P^\ast)}} \geq \frac{1}{\Delta \hat{E}_P^\ast}.
+\end{equation}
+what is a generalization of \eqref{Uncertainty BH}, taking into account the strong probe-system coupling.
+
+\section{Classical Fisher Information of a Gibbs state}\label{Classical Fisher Gibbs}
+Imagine we measure $\rho(T)$ and obtain a probability distribution $p(T)$. Then the classical Fisher $F$ info is given by:
+\begin{equation}
+\mathcal{F}(T) = \sum_j \frac{(\partial_T p_j(T))^2}{p_j(T)}
+\label{CFisher}
+\end{equation}
+Assume a Hamiltonian $H=\sum_j e_j |j \rangle \langle j| $ and that $\rho(T)$ is given by a thermal state:
+\begin{equation}
+\rho(T) = \frac{e^{-\beta H}}{{\rm Tr}(e^{-\beta H})},
+\end{equation}
+We can write $\rho(T)= \sum_j p_j  |j \rangle \langle j|$, where the $p_j(T)$ follow a Gibbs distribution:
+\begin{equation}
+    p_j(T) = \frac{e^{-\beta e_j}}{\mathcal{Z}}
+\end{equation}
+where $\mathcal{Z}= {\rm Tr}(e^{-\beta H})$.
+
+\hspace{-0.6 cm}To obtain the expression for the Fisher Information of this Gibbs state we should start finding $\partial_T p_j(T)$:
+\begin{align}
+    \partial_T p_j (T) &= \frac{\partial}{\partial T}(\frac{e^{-\beta\epsilon_j}}{\mathcal{Z}})=-\frac{1}{T^2} \frac{\partial}{\partial \beta}(\frac{e^{-\beta\epsilon_j}}{\mathcal{Z}})\\
+    &= \frac{1}{T^2}\frac{\epsilon_je^{-\beta\epsilon_j}\mathcal{Z} + e^{-\beta\epsilon_j}\partial_\beta\mathcal{Z}}{\mathcal{Z}^2}\\
+    &= \frac{1}{T^2}\frac{e^{-\beta e_j}}{\mathcal{Z}}(\epsilon_j+\frac{\partial_\beta\mathcal{Z}}{\mathcal{Z}})\\
+    &=\frac{1}{T^2}\,p_j(\epsilon_j+\partial_\beta \ln{\mathcal{Z}})\\
+    &=\frac{1}{T^2}\,(p_j\epsilon_j - p_j\langle H \rangle)
+\end{align}
+In the last step we have used the relation $\partial_\beta \ln{\mathcal{Z}} = -\langle H \rangle$. We can introduce this result in \eqref{CFisher} and obtain the following relation:
+\begin{align}
+    \mathcal{F}(T) &= \sum_j \frac{(\partial_T p_j)^2}{p_j} = \frac{1}{T^4}\sum_j \frac{(p_j\langle H \rangle - p_j\epsilon_j)^2}{p_j}\\
+    &=\frac{1}{T^4}\sum_j\left( p_j\langle H \rangle^2 + p_j\epsilon_j^2 -2\langle H \rangle p_j\epsilon_j \right)\\
+    &=\frac{1}{T^4}\left(\langle H \rangle^2\sum_j p_j\,\,+\sum_j p_j\epsilon_j^2 -2\langle H \rangle\sum_j p_j\epsilon_j\right)\\
+    &=\frac{1}{T^4}\left(\langle H \rangle^2 +\langle H^2 \rangle - 2\langle H \rangle^2\right)=\frac{\langle H^2\rangle - \langle H \rangle^2}{T^4} = \frac{(\Delta H)^2}{T^4}
+\end{align}
+As expected, it is the same exact result that we had for the QFI in \eqref{Fisher Gibbs}. Notice that this result would be different if we do the calculous with respect the inverse temperature $\beta$, as we would not obtain the factor $1/T^4$ (with $k_B=1$).
+
+\section{Optimal gap}\label{Optimal Gap}
+We have that
+\begin{equation}\label{Auxiliar Gap}
+    x^*=2\left(1+\frac{\langle H \rangle}{T}\right) ,
+\end{equation}
+so we need to find $\langle H \rangle$. For a general 2-level system, with $N_0$ particles in the ground state ($\epsilon_1=0$) and $N-N_0$ on the excited one ($\epsilon_2=\Omega$), the partition function is $\mathcal{Z}=N_0+(N-N_0)e^{-\frac{\Omega}{T}}$, thus:
+\begin{align}
+   \langle H \rangle=T^2\partial_T\ln{\mathcal{Z}}=T^2\frac{\partial_T\mathcal{Z}}{\mathcal{Z}}=\frac{(N-N_0)\Omega e^{-\frac{\Omega}{T}}}{N_0+(N-N_0)e^{-\frac{\Omega}{T}}}
+   \label{expectedH_general}\,\, .
+\end{align}
+We can now introduce this result into \eqref{Auxiliar Gap} and obtain
+\begin{align}
+    &x^*=2(1+\langle H \rangle/T) = 2\left(1 + \frac{(N-N_0)x^* e^{-x^*}}{N_0+(N-N_0)e^{-x^*}}\right)\\
+    &(x^*-2)(N_0+(N-N_0)e^{-x^*})=2(N-N_0)x^* e^{-x^*}\\
+    &(x^*-2)N_0 + e^{-x^*} (x^*-2)(N-N_0) -2(N-N_0)x^* e^{-x^*} = 0 \\
+    &e^{-x^*}\left(x^*-2-2x^*\right)=\frac{(x^*-2)N_0}{N-N_0} \\
+    &e^{x^*} = \frac{N-N_0}{N_0}\frac{x^*+2}{x^*-2}
+    \label{A4}
+\end{align}
+which is the equation that we will use to find the value of $x^*$ for different values of $N$.
+
+\section{Partition function $\mathcal{Z}$ for the Star Model}\label{Z_star_A}
+We can separate by the value of the first spin $\sigma_1^z$ in $Z_+$ and $Z_-$
+\begin{align}
+    Z_+
+    &=\sum_{i=1}g_ie^{-E_i\beta}=\sum_{\vec{\sigma}^z}e^{-\beta H_{star}[\vec{\sigma},\sigma_1^z=+1]}=e^{-\beta a}\sum_{\vec{\sigma}^z}e^{-2\beta b \sum_{i=2}^N \sigma_i^z} \\ 
+    &=e^{-\beta a}\prod_{i=2}^N\sum_{\sigma_i^z=\pm1}e^{-2\beta b\sigma_i^z}=e^{-\beta a}(e^{-2\beta b}+e^{-2\beta b})^{N-1} \\[5pt]  
+    &= 2^{N-1}e^{-\beta a}\cosh(2\beta b)^{N-1}\\[7pt]
+    Z_-
+    &=\sum_{i=1}g_ie^{-E_i\beta}=2^{N-1}e^{\beta a}\\[2pt]
+    Z_{\text{star}}
+    &=Z_+ + Z_-=2^{N-1}(e^{-\beta a}\cosh(2\beta b )^{N-1}+e^{\beta a}) 
+\end{align}
+
+\section{Detailed balance check}\label{Detailed Balance Check}
+For systems with degeneracy in the different energy levels, we have to add a factor in \ref{Detailed Balance} that gives us
+\begin{equation}
+    g_n W_{n\to m} \exp(-\beta \varepsilon_n) = g_m W_{m\to n} \exp(-\beta \varepsilon_m) \,.
+\end{equation}
+Starting with the Star Model, we check first the particular rates for $n=0$:
+\begin{align}
+    g_0 W_{0\to 1} \exp(-\beta \varepsilon_0) &= g_1 W_{1\to 0} \exp(-\beta \varepsilon_m) \\
+    2^{N-1}\alpha(1+e^{\beta \Delta U_{1\to 0}})^{-1}e^{-\beta\varepsilon_0}&=1\cdot2^{N-1}\alpha(1+e^{\beta \Delta U_{0\to 1}})^{-1}e^{-\beta\varepsilon_1} \\
+    \frac{1+e^{\beta \Delta U_{0\to 1}}}{1+e^{\beta \Delta U_{1\to 0}}}&=e^{\beta(\varepsilon_0-\varepsilon_1)} \\
+    \frac{1+e^{\beta \Delta U_{0\to 1}}}{1+e^{-\beta \Delta U_{0\to 1}}}&=e^{\beta\Delta U_{0\to 1}}\\
+    e^{\beta\Delta U_{0\to 1}}&=e^{\beta\Delta U_{0\to 1}}\,\,\, \checkmark
+\end{align}
+Where we have used $\Delta U_{1\to0}=-\Delta U_{0\to1}$. For a general $n\geq1$ we got
+\begin{align}
+    g_n W_{n\to n+1} \exp(-\beta \varepsilon_n) &= g_{n+1} W_{n+1\to n} \exp(-\beta \varepsilon_{n+1}) \\
+    \binom{N-1}{n-1}\alpha(N-n)\left(1+e^{\beta \Delta U_{n+1\to n}} \right)^{-1}e^{-\beta\varepsilon_n}&=\binom{N-1}{n}\alpha n\left(1+e^{\beta \Delta U_{n\to n+1}} \right)^{-1}e^{-\beta\varepsilon_{n+1}} \\ 
+    \frac{N-n}{n}\hspace{0.09 cm}\frac{1+e^{\beta \Delta U_{n\to n+1}}}{1+e^{\beta \Delta U_{n+1\to n}}}&=\frac{\binom{N-1}{n}}{\binom{N-1}{n-1}}e^{\beta \Delta U_{n\to n+1}}
+\end{align}
+We know that the exponential terms coincide, as we just did for $n=0$. Therefore, checking that 
+\begin{align}
+\frac{\binom{N-1}{n}}{\binom{N-1}{n-1}} &= \frac{\frac{(N-1)!}{n!(N-1-n)!}}{\frac{(N-1)!}{(n-1)!(N-n)!}} = \frac{(n-1)!(N-n)!}{n!(N-1-n)!} = \frac{(n-1)!}{n \cdot (n-1)!} \cdot \frac{(N-n)\cdot(N-1-n)!}{(N-1-n)!} \\
+&= \frac{N - n}{n} \,\, \checkmark 
+\end{align}
+we can say that detailed balance is satisfied for the calculated rates of the Star Model.
+
+Identically for the All-to-All model. We just have to replace the terms with $n-1$ by just $n$ to easily see that detailed balance is also satisfied for the rates in \eqref{Transition rates All - 1} and \eqref{Transition rates All - 2}.
+
+\chapter{All-to-All model data}
+
+\begin{table}[h]
+    \centering
+    \caption{All-to-All model data}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|l|c|c|}
+        \hline 
+        $N$ & $Z$ & $C_{max}$ & $J_{opt}$ \\
+        \hline
+        2 & $e^{3 \beta J} + 3 e^{-\beta J}$ & 1.023 & 0.7112 \\
+        \hline
+        3 & $e^{6 \beta J} +3e^{-2 \beta J} + 4$ & 1.706 & 0.4960 \\
+        \hline
+        4 & $5 e^{2 \beta J} + e^{10 \beta J} + 10 e^{-2 \beta J}$ & 2.461 & 0.3769 \\
+        \hline
+        5 & $6 e^{5 \beta J} + e^{15 \beta J} + 10 e^{-3 \beta J} + 15 e^{-\beta J}$ & 3.274 & 0.3019 \\
+        \hline
+        6 & $21 e^{\beta J} + 7 e^{9\beta J} + e^{21\beta J} + 35 e^{-3\beta J}$ & 4.135 & 0.2506 \\
+        \hline
+        7 & $28 e^{4\beta J} + 8 e^{14\beta J} + e^{28\beta J} + 35 e^{-4\beta J} + 56 e^{-2\beta J}$ & 5.034 & 0.2135 \\
+        \hline
+        8 & $36 e^{8 \beta J} + 9 e^{20 \beta J} + e^{36 \beta J}  + 126 e^{-4 \beta J}+ 84$ & 5.968 & 0.1856 \\
+        \hline
+        9 & $120 e^{3 \beta J} + 45 e^{13 \beta J} + 10 e^{27 \beta J} + e^{45 \beta J} + 126 e^{-5 \beta J} + 210 e^{-3 \beta J}$ & 6.931 & 0.1638 \\
+        \hline
+        10 & $165 e^{7 \beta J} + 55 e^{19 \beta J} + 11 e^{35 \beta J} + e^{55 \beta J} + 462 e^{-5 \beta J} + 330 e^{-\beta J} $ & 7.920 & 0.1464 \\
+        \hline
+    \end{tabular}\label{All-To-All Data}
+\end{table} 
+
+
+\chapter{Python Codes}\label{Python Codes}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{C.\arabic{equation}}
+In this section we will introduce the python codes used to solve some aspects of this work. We will only explain in detail the code used to solve the rate equations, since is the only code with mathematical impact in the calculations of this work.
+
+\hspace{-0.5 cm}The codes used for plotting the different figures are:
+
+\begin{itemize}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/9049af01d4c70d71c440c45a4eb79081c19504dd/FisherInformation(T).py}{\texttt{FisherInformation(T).py} — Plotting of Figure \ref{FisherN}}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/9049af01d4c70d71c440c45a4eb79081c19504dd/C(N).py}{\texttt{C(N).py} — Plotting of Figure \ref{Cmax_grafica}}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/9049af01d4c70d71c440c45a4eb79081c19504dd/Thermalization%20E%20%26%20F.py}{\texttt{Thermalization E and F.py} — Simulating the thermalization process of the Energy and Fisher Information and plotting of Figure \ref{Thermalization_E_and_F}}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/5fe2d094304230ce8fc1359bcfc20a419ec496e2/Fisher_and_Eta_N20.py}{\texttt{Fisher and Eta N20.py} — Simulating the thermalization process of both Fisher Information and $\eta_{\mathcal{T}}$ in a of $N=20$ Star Model, and plotting Figure \ref{Fisher20-Nu}.}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/346ab8400c583fc16bf81fb7f2f59714dbbb3573/Decay%20Rates.py}{\texttt{Decay Rates.py} — Plotting Figure \ref{Decay rates}.}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/346ab8400c583fc16bf81fb7f2f59714dbbb3573/Thermalization%20Fisher%20Json.py}{\texttt{Thermalization Fisher Json.py} — Plotting Figure \ref{Ground vs Equiprobable}.}
+\end{itemize}
+Other codes used as a support for plots or second-rate calculations:
+\begin{itemize}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/9049af01d4c70d71c440c45a4eb79081c19504dd/Find X_opt.py}{\texttt{Find X opt.py} — Calculation of optimal gaps through equation \ref{e^x}.}
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/aead520b00c099f157a43fada79d58cabea4dd1a/Energies%20and%20Partition%20Functions.py}{\texttt{Energies and Partition Functions.py} — Finding Energies and Partition functions for different values of $N$ for both Star and All-To-All model }
+  \item \href{https://github.com/alberto7rodriguez/TFG-Alberto-Rodriguez/blob/5fe2d094304230ce8fc1359bcfc20a419ec496e2/Gibbs%20Probabilities.py}{\texttt{Gibbs Probabilities.py} — Calculation of the Gibbs populations for both Star and All-To-All models, used to plot the thermal states in Figure \ref{Thermalization_E_and_F}.}
+\end{itemize}
+
+Now focusing on the Python script that solves the Pauli master equation \eqref{Pauli Equation} for the population dynamics of the Star Model. The main components of the code are:
+
+\begin{itemize}
+  \item \textbf{Energy function \texttt{U(N, n)}:} Defines the internal energy of the Star Model at excitation level $n$, based on effective parameters $a$ and $b$ taken from lists for each system size $N$ \cite{abiuso2022optimal}.
+
+  \item \textbf{Fermi-like function \texttt{f(x, beta)}:} Implements the transition probability for a process with energy change $x$ at inverse temperature $\beta$, using the expression $f(x, \beta) = \frac{1}{1 + e^{\beta x}}$.
+
+  \item \textbf{Function \texttt{transition\_matrix(N, beta)}:} Constructs the rate matrix $M$ governing the dynamics via the Pauli master equation:
+  \begin{equation}
+  \frac{d\vec{p}}{dt} = M \vec{p}
+  \end{equation}
+  Each element $M_{m,n}$ represents the rate of transition from state $n$ to $m$, and the matrix is built to ensure probability conservation (i.e., columns sum to zero).
+
+  \item \textbf{Time evolution:} The solution $\vec{p}(t)$ at time $t$ is computed via matrix exponentiation using $\vec{p}(t) = e^{Mt} \vec{p}(0)$, where $\vec{p}(0)$ is the initial state (that can be adjusted in lines 53-56).
+
+  \item \textbf{Spectral decomposition:} The code diagonalizes the matrix $M$ to express each component $p_n(t)$ as a sum of exponentials:
+  \begin{equation}
+  p_n(t) = \sum_k A_{n,k} \, e^{\lambda_k t}
+  \end{equation}
+  where $\lambda_k$ are the eigenvalues and $A_{n,k}$ are coefficients determined by the eigenvectors and the initial state. This decomposition reveals how each mode contributes to thermalization.
+
+\end{itemize}
+
+The script outputs a .json file with the full analytical form of $p_n(t)$, giving insight into how each population evolves toward equilibrium.
+\vspace{0.3 cm}
+\lstinputlisting[style=mypython, caption={Python script solving the master equation for the Star Model.}]{Probabilities Star Model JSON.py}
+\newpage
+For the All-To-All model we can use the same script just replacing some functions. First, the energy must be the one defined by \eqref{Ek_all}, using the $J$ values given in \ref{All-To-All Data}. Then we have to replace the \texttt{transition\_matrix(N, beta)} function by a simpler definition. Just to adapt it to the transition rates we have in \eqref{Transition rates All - 1} and \eqref{Transition rates All - 2}.
+
+Then the first part of the code becomes:
+\begin{lstlisting}[style=mypython, caption={\centering Functions defined for the All-To-All model in order to find the analytical solutions for $p_n(t)$}]
+J_values = [0.7112, 0.496, 0.3769, 0.3019, 0.2506, 0.2135, 0.1856, 0.1638, 0.1464]
+
+def U(N,n):
+    return J*(-N*(N+1)*0.5 + 2*(n+1)*(N-n)) 
+
+def f(x, beta):
+    return 1 / (1 + np.exp(beta * x))
+
+def transition_matrix(N, beta):
+    M = np.zeros((N+1, N+1))
+
+    for n in range(N+1):
+        # Transitions from n to n+1
+        if n < N:
+            delta_U = U(N,n+1) - U(N,n)
+            rate_up = (N - n) * f(delta_U, beta)
+            M[n, n] -= rate_up
+            M[n+1, n] += rate_up
+
+        # Transitions from n to n-1
+        if n > 0:
+            delta_U = U(N,n-1) - U(N,n)
+            rate_down = n * f(delta_U, beta)
+            M[n, n] -= rate_down
+            M[n-1, n] += rate_down
+
+    return M
+
+\end{lstlisting}

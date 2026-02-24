@@ -1,0 +1,195 @@
+\documentclass[a4paper,11pt,twoside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath} %Modo matemático%
+\usepackage{amssymb,amsfonts,latexsym,cancel}
+\usepackage{rawfonts}
+\usepackage[font=small]{subcaption}
+\usepackage{soul}
+\usepackage{pictexwd}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{schemata}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{multicol}
+\usepackage{braket}
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{eucal}
+\usepackage{caption}
+\usepackage{enumitem}
+\newcommand{\mycomment}[1]{}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{paracol}
+\usepackage{import}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegray}{gray}{0.95}
+
+\lstdefinestyle{mypython}{
+    language=Python,
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    captionpos=b,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=4
+}
+\usepackage{indentfirst}
+\usepackage{datetime}
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\usepackage[maxbibnames=99,backend=biber,sorting=none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{references.bib}
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+\usepackage{multirow}
+\usepackage{makeidx}
+\makeindex
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\usepackage{url}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\large\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.5pt}
+\usepackage{hyperref} %PER REFERENCIAR L'ÍNDEX
+\raggedbottom
+\begin{document}
+\pagenumbering{roman}
+%TC:ignore
+\import{./}{title.tex}
+
+\clearpage
+\thispagestyle{empty}
+\newpage
+~\newpage
+\thispagestyle{empty}
+
+\chapter*{Declaració d'autoria del Treball de Grau}
+
+Jo, Alberto Rodriguez Rodriguez, amb Document Nacional de Identitat 49223337W, i estudiant del Grau en Física de la Universitat Autònoma de Barcelona, en relació amb la memòria del treball de final de Grau presentada per a la seva defensa i avaluació durant la convocatòria de Juliol del curs 2024-2025, declara que:
+
+\begin{itemize}
+    \item El document presentat és original i ha estat realitzat per la seva persona.
+    \item El treball s'ha dut a terme principalment amb l'objectiu d'avaluar l'assignatura de treball de grau en física en la UAB, i no s'ha presentat prèviament per ser qualificat en l'avaluació de cap altra assignatura ni en aquesta ni en cap altra universitat.
+    \item En el cas de continguts de treballs publicats per terceres persones, l'autoria està clarament atribuïda, citant les fonts degudament.
+    \item En els casos en els que el meu treball s'ha realitzat en col·laboració amb altres investigadors i/o estudiants, es declara amb exactitud quines contribucions es deriven del treball de tercers i quines es deriven de la meva contribució.
+    \item A l'excepció dels punts esmentats anteriorment, el treball presentat és de la meva autoria.
+\end{itemize}
+Signat:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Firma.png}
+\end{figure}
+\clearpage
+\thispagestyle{empty}
+\hfill
+\clearpage
+\newpage
+\thispagestyle{empty}
+\chapter*{Declaració d'extensió del Treball de Grau}
+
+Jo, Alberto Rodriguez Rodriguez, amb Document Nacional de Identitat 49223337W, i estudiant del Grau en Física de la Universitat Autònoma de Barcelona, en relació amb la memòria del treball de final de Grau presentada per a la seva defensa i avaluació durant la convocatòria de Juliol del curs 2024-2025, declara que:
+
+\begin{itemize}
+    \item El nombre total de paraules (segons comptatge proposat) incloses en les seccions des de la introducció a les conclusions és de $\left( 9275 \right)$ paraules.
+    \item El nombre total de figures és de $\left( 6 \right)$.
+\end{itemize}
+
+En total, el document comptabilitza:
+\begin{equation*}
+    \left( 6135 \right) \text{ paraules} + \left( 77 \right) \times 20 \text{ paraules / línia de fórmula} + \left( 8 \right) \times 200 \text{ paraules / figura} = 9275 \text{ paraules},
+\end{equation*}
+que compleix amb la normativa al ser inferior a 10000\footnote{S'ha fet servir l'eina de comptatge d'Overleaf, que considera cada equació en el text com 1 paraula. A més, només es comptabilitza el text entre la introducció i les conclusions, tal i com es detalla a la guia docent de l'assignatura.}. \\
+
+Signat:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Firma.png}
+\end{figure}
+\clearpage
+\thispagestyle{empty}
+\hfill
+\clearpage
+\thispagestyle{empty}
+
+\chapter*{Abstract}
+This thesis investigates the fundamental limits and practical aspects of temperature estimation in the quantum regime \cite{mehboudi2019thermometry}. Starting from the framework of quantum estimation theory, we characterize the optimal equilibrium thermometer by maximizing the Quantum Fisher Information (QFI) over all possible energy spectra \cite{correa2015individual}. This yields a theoretical bound for thermometric precision. We then analyze physically motivated spin interaction models — the Star and All-to-All configurations — which were recently identified as optimal structures among generic spin networks \cite{abiuso2022optimal}. By comparing their performance with the theoretical bound, we assess their suitability as realistic thermometric probes. Finally, we present new results in the context of dynamical quantum thermometry, studying how energy and QFI evolve during thermalization. Using numerical simulations of open quantum system dynamics, we find that while energy relaxes rapidly, QFI converges more slowly, revealing a trade-off between sensitivity and equilibration time. These results offer valuable insight into the design of efficient quantum thermometers and may inform applications in quantum sensing, thermodynamics, and precision measurements in out-of-equilibrium systems.
+
+\clearpage
+\thispagestyle{empty}
+\hfill
+\clearpage
+\newpage
+\thispagestyle{empty}
+\chapter*{Acknowledgment}
+First of all, I would like to thank Dr. Martí Perarnau for all his guidance  during the whole course. Even though it has been difficult, he always found some time for me, to help me with this interesting and challenging work.  
+
+Also, I want to mention the support of my colleagues, who have helped me through the 4 years that we have been studying this amazing degree, and with whom I have lived incredible experiences that I will never forget.
+
+Last but not least, I would like to acknowledge my family, especially my mum and dad, for all the sacrifices they have made so that I could have all the opportunities they never had, I hope one day I can give you back everything you have given me.
+\clearpage
+\thispagestyle{empty}
+\hfill
+\clearpage
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+%TC:endignore
+\pagenumbering{arabic}
+
+\chapter{Introduction}\label{Chapter 1}
+\import{./}{Introduction.tex}
+
+\newpage
+
+\chapter{Theoretical framework}\label{Chapter 2}
+\import{./}{Theoretical Framework.tex}
+
+\chapter{Optimal Quantum Thermometry}\label{Chapter 3}
+\import{./}{Optimal Q-Thermometry.tex}
+
+\chapter{Transient regime: thermalization and steady state}\label{Chapter 4}
+\import{./}{Dynamics.tex}
+
+\chapter{Conclusions}\label{Chapter 5}
+\import{./}{Conclusions.tex}
+
+\newpage
+
+\appendix
+\import{./}{Appendix.tex}
+
+\newpage
+\stepcounter{chapter} % Increase counter (section) by one step
+\nocite{*}
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\printbibliography
+\end{document}
+

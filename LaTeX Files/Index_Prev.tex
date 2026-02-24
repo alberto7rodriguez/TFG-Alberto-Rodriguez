@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[catalan]{babel}
+\parindent = 0cm %sangria%
+\usepackage{amsmath} %Modo matemático%
+\usepackage{amssymb,amsfonts,latexsym,cancel}
+\usepackage{rawfonts}
+\usepackage{pictexwd}
+\usepackage{subfig}
+\usepackage{bbold}
+\usepackage {graphicx}
+\usepackage {epstopdf}
+\usepackage {float}
+\usepackage{amsthm}
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage {subfigure}
+\usepackage {array}
+\usepackage {longtable}
+\usepackage{cancel}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage {bm}
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\columnsep}{1.75cm}
+\usepackage [lmargin=2.7cm,rmargin=2.cm,top=1.5cm,bottom=2.5cm]{geometry}
+\usepackage{multicol}
+\usepackage{paracol}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{braket}
+\cfoot[\thepage]{\thepage}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+\title{Notas TFG}
+\author{Alberto Rodríguez}
+\date{December 2024}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Motivation}
+\subsection{Structure}
+
+\newpage
+\section{Theoretical framework}
+\subsection{Thermometry in the Quantum Regime.}
+\subsection{Equilibrium thermometers and non-equilibrium ones}
+\subsection{Dynamical Quantum Thermometry}
+\subsubsection{Open Quantum Systems}
+\subsubsection{Thermometry under thermalising dynamics}
+
+\newpage
+\section{Optimal Quantum thermometry}
+\subsection{Optimal spectrum for equilibrium thermometry}
+\subsubsection{Fisher Information}
+\subsubsection{Heat Capacity}
+\subsection{Optimal spin-network thermometers}
+\subsubsection{Star Model}
+\subsubsection{All-To-All Model}
+
+\newpage
+\section{Transient regime: From dynamical to steady state}
+\subsection{Relaxation to equilibrium}
+\subsection{Energy and Fisher Information during thermalization}
+\subsection{Optimization trade-offs}
+
+\newpage
+\section{Conclusions}
+\subsection{Summary}
+\subsection{Outlook}
+
+\newpage
+\appendix
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A\arabic{equation}}
+
+\section{Some derivations}
+A.1 - Partial derivative of the ln of the partition function 
+\begin{align}
+    \partial_\beta\ln\mathcal{Z}&=\frac{1}{\mathcal{Z}}\partial_\beta\sum_ie^{-\beta\epsilon_i}
+    =-\frac{1}{\mathcal{Z}}\sum_i\epsilon_ie^{-\beta\epsilon_i}=-\sum_i\epsilon_i\frac{e^{-\beta\epsilon_i}}{\mathcal{Z}} =- \sum_i\epsilon_ip_i = -\langle H \rangle
+\label{A1}
+\end{align}
+A.2 - Energy variance :
+\begin{align}
+\label{A2}
+  \Delta H^2 &= \mathcal{Z}^{-1}\sum_i^D\epsilon_i^2e^{-\epsilon_i/T} - (\mathcal{Z}^{-1}\sum_i^D\epsilon_i^{-\epsilon_i/T})^2 \notag  \\
+  &=\frac{(D-1)\Omega^2e^{-x}}{1+(D-1)e^{-x}} - \frac{(D-1)^2\Omega^2e^{-2x}}{(1+(D-1)e^{-x})^2} \notag \\
+  &=(D-1)\Omega^2\frac{e^{-x}(1+(D-1)e^{-x})-(D-1)e^{-2x}}{e^{-2x}(D-1+e^x)^2}\notag \\
+  &=(D-1)\Omega^2\frac{e^{-x}+\cancel{(D-1)e^{-2x}}-\cancel{(D-1)e^{-2x}}}{e^{-2x}(D-1+e^x)^2} \notag \\
+  &=e^x\Omega^2\frac{D-1}{(D-1+e^x)^2}  
+\end{align}
+
+A.3 - Fisher Information as a function of D\\
+\begin{equation}
+    F_D = \frac{\Delta H^2}{T^4} = \frac{e^x\Omega^2}{T^4}\frac{D-1}{(D-1+e^x)^2}=\frac{e^x x^4}{\Omega^2}\frac{D-1}{(D-1+e^x)^2}
+    \label{A3}
+\end{equation}\\
+
+A.4 - Optimal gap relation
+\begin{align}
+    &x^*=2(1+\langle H \rangle/T) = 2\left(1 + \frac{(N-N_0)x^* e^{-x^*}}{N_0+(N-N_0)e^{-x^*}}\right)\notag\\
+    &(x^*-2)(N_0+(N-N_0)e^{-x^*})=2(N-N_0)x^* e^{-x^*}\notag\\
+    &(x^*-2)N_0 + e^{-x^*} (x^*-2)(N-N_0) -2(N-N_0)x^* e^{-x^*} = 0 \notag\\
+    &e^{-x^*}\left(x^*-2-2x^*\right)=\frac{(x^*-2)N_0}{N-N_0} \notag\\
+    &e^{x^*} = \frac{N-N_0}{N_0}\frac{x^*+2}{x^*-2}
+    \label{A4}
+\end{align}
+
+A.5 - Partition function for the Star Model
+\begin{align}
+    Z_+
+    &=\sum_{i=1}g_ie^{-E_i\beta}=\sum_{\vec{\sigma}^z}e^{-\beta H_{star}[\vec{\sigma},\sigma_1^z=+1]}=e^{-\beta a}\sum_{\vec{\sigma}^z}e^{-2\beta b \sum_{i=2}^N \sigma_i^z}\notag \\\notag 
+    &=e^{-\beta a}\prod_{i=2}^N\sum_{\sigma_i^z=\pm1}e^{-2\beta b\sigma_i^z}=e^{-\beta a}(e^{-2\beta b}+e^{-2\beta b})^{N-1} \\[5pt] \notag 
+    &= 2^{N-1}e^{-\beta a}\cosh(2\beta b)^{N-1}\\[7pt]\notag
+    Z_-
+    &=\sum_{i=1}g_ie^{-E_i\beta}=2^{N-1}e^{\beta a}\\[2pt]
+    Z_{\text{star}}
+    &=Z_+ + Z_-=2^{N-1}(e^{-\beta a}\cosh(2\beta b )^{N-1}+e^{\beta a}) 
+    \label{Z_star_A}
+\end{align}
+
+A.6 - $C_{Star}$ in the asymptotic limit $N\to\infty$
+\begin{align}
+    \Delta^2H_{Star} =&\,\,\frac{4b^2 (N-1) \cosh(2b)^N + 2e^{2a} \cosh(2b) \left( a^2 - b^2 (N-1)(N-3)\right)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2}\,\,+\notag\\[10pt]
+   &+ \frac{(a^2 + b^2 (N-1)^2) \cosh(4b) - 2ab(N-1) \sinh(4b)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2} \label{A6} \\ \notag
+   \approx&\frac{4b^2(N-1)\cosh(2b)^N}{\cosh(2b)^{2-N}\cosh(2b)^{2N}} = \frac{4b^2(N-1)}{\cosh(2b)^{2}}
+\end{align}
+
+\section{Data Tables}
+\begin{table}[h]
+    \centering
+    \caption{All-to-All model Data}
+    \begin{tabular}{|c|l|c|c|}
+        \hline 
+        $N$ & $Z$ & $C_{max}$ & $J_{opt}$ \\
+        \hline
+        2 & $e^{3 \beta J} + 3 e^{-\beta J}$ & 1.023 & 0.7112 \\
+        \hline
+        3 & $e^{6 \beta J} +3e^{-2 \beta J} + 4$ & 1.706 & 0.4960 \\
+        \hline
+        4 & $5 e^{2 \beta J} + e^{10 \beta J} + 10 e^{-2 \beta J}$ & 2.461 & 0.3769 \\
+        \hline
+        5 & $6 e^{5 \beta J} + e^{15 \beta J} + 10 e^{-3 \beta J} + 15 e^{-\beta J}$ & 3.274 & 0.3019 \\
+        \hline
+        6 & $21 e^{\beta J} + 7 e^{9\beta J} + e^{21\beta J} + 35 e^{-3\beta J}$ & 4.135 & 0.2506 \\
+        \hline
+        7 & $28 e^{4\beta J} + 8 e^{14\beta J} + e^{28\beta J} + 35 e^{-4\beta J} + 56 e^{-2\beta J}$ & 5.034 & 0.2135 \\
+        \hline
+        8 & $36 e^{8 \beta J} + 9 e^{20 \beta J} + e^{36 \beta J}  + 126 e^{-4 \beta J}+ 84$ & 5.968 & 0.1856 \\
+        \hline
+        9 & $120 e^{3 \beta J} + 45 e^{13 \beta J} + 10 e^{27 \beta J} + e^{45 \beta J} + 126 e^{-5 \beta J} + 210 e^{-3 \beta J}$ & 6.931 & 0.1638 \\
+        \hline
+        10 & $165 e^{7 \beta J} + 55 e^{19 \beta J} + 11 e^{35 \beta J} + e^{55 \beta J} + 462 e^{-5 \beta J} + 330 e^{-\beta J} $ & 7.920 & 0.1464 \\
+        \hline
+    \end{tabular}
+    \label{All-To-All Data}
+\end{table} 
+
+
+\section{References}
+\begin{enumerate}
+    \item \label{Paper1}Individual Quantum probes for optimal thermometry - [https://arxiv.org/pdf/1411.2437]
+    \item \label{Paper2}Optimal Thermometers with Spin Networks - [https://arxiv.org/pdf/2211.01934]
+    \item \label{Paper3}Optimal probes for global quantum thermometry - [https://arxiv.org/pdf/2010.14200v1]
+\end{enumerate}   
+
+\end{document}

@@ -1,0 +1,9 @@
+# Fdb version 4
+["pdflatex"] 0 "c:/Users/usuario/Desktop/GitHub/TFG-Alberto-Rodriguez/LaTeX Files/main.tex" "main.pdf" "main" 0 -1
+  "%OUTDIR%/main.aux" 0 -1 0 "pdflatex"
+  "c:/Users/usuario/Desktop/GitHub/TFG-Alberto-Rodriguez/LaTeX Files/main.tex" 0 -1 0 ""
+  (generated)
+  "%OUTDIR%/main.aux"
+  "%OUTDIR%/main.log"
+  "main.pdf"
+  (rewritten before read)

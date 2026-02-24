@@ -1,0 +1,323 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[catalan]{babel}
+\parindent = 0cm %sangria%
+\usepackage{amsmath} %Modo matemático%
+\usepackage{amssymb,amsfonts,latexsym,cancel}
+\usepackage{rawfonts}
+\usepackage{pictexwd}
+\usepackage{subfig}
+\usepackage{bbold}
+\usepackage {graphicx}
+\usepackage {epstopdf}
+\usepackage {float}
+\usepackage{amsthm}
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage {subfigure}
+\usepackage {array}
+\usepackage {longtable}
+\usepackage{cancel}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage {bm}
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\columnsep}{1.75cm}
+\usepackage [lmargin=2.7cm,rmargin=2.cm,top=1.5cm,bottom=2.5cm]{geometry}
+\usepackage{multicol}
+\usepackage{paracol}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{braket}
+\cfoot[\thepage]{\thepage}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+\title{Notas TFG}
+\author{Alberto Rodríguez}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Fisher Information and Heat Capacity}
+We want to estimate the parameter $\beta$ of some state $\rho(\beta)$. Imagine we measure $\rho(\beta)$ and obtain a probability distribution $p(\beta)$. Then the classical Fisher $F$ info is given by:
+\begin{equation}
+F = \sum_j \frac{(\partial_\beta p_j(\beta))^2}{p_j(\beta)}
+\label{CFisher}
+\end{equation}
+Assume a Hamiltonian $H=\sum_j e_j |j \rangle \langle j| $ and that $\rho(\beta)$ is given by a thermal state:
+\begin{equation}
+\rho(\beta) = \frac{e^{-\beta H}}{{\rm Tr}(e^{-\beta H})},
+\end{equation}
+We can write $\rho(\beta)= \sum_j p_j  |j \rangle \langle j|$, where the $p_j(\beta)$ follow a Gibbs distribution:
+\begin{equation}
+    p_j(\beta) = \frac{e^{-\beta e_j}}{\mathcal{Z}}
+\end{equation}
+where $\mathcal{Z}= {\rm Tr}(e^{-\beta H})$.
+
+To obtain the expression for the Fisher Information of this Gibbs state we should start finding $\partial_\beta p_j(\beta)$:
+\begin{align*}
+    \partial_\beta p_j (\beta) &= \frac{\partial}{\partial\beta}(\frac{e^{-\beta\epsilon_j}}{\mathcal{Z}})\\
+    &= \frac{-\epsilon_je^{-\beta\epsilon_j}\mathcal{Z} - e^{-\beta\epsilon_j}\partial_\beta\mathcal{Z}}{\mathcal{Z}^2}\\
+    &= -\frac{e^{-\beta e_j}}{\mathcal{Z}}(\epsilon_j+\frac{\partial_\beta\mathcal{Z}}{\mathcal{Z}})\\
+    &=-p_j(\epsilon_j+\partial_\beta \ln{\mathcal{Z}})\\
+    &=p_j\langle H \rangle - p_j\epsilon_j
+\end{align*}
+In the last step we have used the relation $\partial_\beta \ln{\mathcal{Z}} = -\langle H \rangle$ derived in \ref{A1}. We can introduce this result in \ref{CFisher} and obtain the following relation:
+\begin{align*}
+    F(\rho_\beta) &= \sum_j \frac{(\partial_\beta p_j)^2}{p_j} = \sum_j \frac{(p_j\langle H \rangle - p_j\epsilon_j)^2}{p_j(\beta)}\\
+    &=\sum_j\left( p_j\langle H \rangle^2 + p_j\epsilon_j^2 -2\langle H \rangle p_j\epsilon_j \right)\\
+    &=\langle H \rangle^2\sum_j p_j\,\,+\sum_j p_j\epsilon_j^2 -2\langle H \rangle\sum_j p_j\epsilon_j\\
+    &=\langle H \rangle^2 +\langle H^2 \rangle - 2\langle H \rangle^2=\langle H^2\rangle - \langle H \rangle^2 = (\Delta H)^2
+\end{align*}
+It is important to notice that this result would be different if we do the derivations with respect the temperature T, as it's done in B.\ref{Paper1}, we would obtain an extra factor $1/T^4$ (with $k_B=1)$. To be consistent with the original paper we will from now use this expression for the Fisher Information:
+\begin{equation}
+\label{F(T)}
+    F_T = \frac{\Delta H^2}{T^4}
+\end{equation}
+The Fisher Information tells us the precision that relates our measurement of an observable, with the real value of the parameter that the observable depends on. So, in order to find the most precise thermometer to measure the temperature, we must maximize this Fisher Information, in other words, find the energy spectrum with the largest possible energy variance at thermal equilibrium.\par
+To find this spectrum it is imposed that $\partial_{\epsilon_i}\Delta H^2=0$ on the expression for a general N-level probe. This condition derives in $(\epsilon_i-\epsilon_j)(\epsilon_i+\epsilon_j-2-2H/T) = 0$. This means that any two energy eigenvalues must be either equal or sum up to the same value at the stationary point of $\Delta H^2$. This can only happen in a two-level system with energies $\epsilon_+$ and $\epsilon_-$, and $N_0$ degeneracy on the ground state and $N - N_0$ on the excited one. Then, observing that if $N_0$ increases, $\Delta H^2$ decreases, it is concluded that the optimal probe that maximizes the Fisher Information is with $N_0=1$. Since we can shift our energy spectrum in a way that $\epsilon_-=0$, the optimal gap is defined as $x^*_{N,N_0}\equiv\Omega^*/T=(\epsilon_++\epsilon_-)/T=2(1+\langle H \rangle/T)$, and the Hamiltonian has the form:
+\begin{equation}
+    H_{opt} = 0\ket{0}\bra{0} +\sum_i^{D-1}E\ket{i}\bra{i}
+    \label{Hopt}
+\end{equation}
+For later purposes, using Eq.(\ref{expectedH_general}), we can rewrite this optimal gap with another expression (derived in \ref{A4}):
+\begin{equation}
+    e^{x^*}=\frac{N-N_0}{N_0}\frac{x^*+2}{x^*-2}
+    \label{e^x}
+\end{equation}
+Now, knowing the hamiltonian, we can easily compute the partition function: $\mathcal{Z}=1+(D-1)e^{-x}$, where D is the dimension of the Hilbert space. Then we can obtain (explicitly derived in \ref{A2} and \ref{A3}) the expression for the Fisher Information for diferents values of D:
+\begin{equation}
+    F_D =\frac{e^x x^4}{\Omega^2}\frac{D-1}{(D-1+e^x)^2}
+    \label{NFisher}
+\end{equation}
+This expression is maximal at $x=x^*_{N,1}$. In the following figure we can see plotted this Fisher Information for different values of D. We also have a normalized version of the Fisher Information, comparing D=2 and D=10 to notice that, although D=10 gives a higher F.I, the specified temperature range where the probe is efficient is wider for D=2.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{FisherN.png}
+    \captionsetup{justification=centering}
+    \caption{Fisher Information as a function of T for different values of N. Both T and $\mathcal{F}$ expressed in arbitrary units and fixing $\Omega = 1$.}
+    \label{FisherN}
+\end{figure}
+
+\vspace{0.3cm}
+On the other hand, we can calculate the heat capacity of this optimal probe. We know that it can be defined as:
+\begin{equation}
+    C(T)=\frac{\partial U}{\partial T}=\frac{\partial\langle H \rangle }{\partial T}
+\end{equation}
+For a general 2-level system, with $N_0$ particles in the ground state ($\epsilon_1=0$) and $N-N_0$ on the excited one ($\epsilon_2=\Omega$), the partition function becomes $\mathcal{Z}=N_0+(N-N_0)e^{-\frac{\Omega}{T}}$, thus:
+\begin{align}
+   \langle H \rangle=T^2\partial_T\ln{\mathcal{Z}}=T^2\frac{\partial_T\mathcal{Z}}{\mathcal{Z}}=\frac{(N-N_0)\Omega e^{-\frac{\Omega}{T}}}{N_0+(N-N_0)e^{-\frac{\Omega}{T}}}
+   \label{expectedH_general}
+\end{align}
+And the heat capacity (for the optimal probe, i.e $N_0 = 1$ and N = D):
+\begin{align}
+    C^{opt}(T)&= \frac{\partial\langle H \rangle }{\partial T} = \frac{\partial}{\partial T}\left[\frac{(D-1)\Omega e^{-\frac{\Omega}{T}}}{1+(D-1)e^{-\frac{\Omega}{T}}}\right]\notag\\
+    &=(D-1)\Omega\left[\frac{\left(\frac{\Omega}{T^2}\right) e^{-\frac{\Omega}{T}}\left(1+(D-1)e^{-\frac{\Omega}{T}}\right)-e^{-\frac{\Omega}{T}}(D-1)e^{-\frac{\Omega}{T}}\left(\frac{\Omega}{T^2}\right)}{\left(1+(D-1)e^{-\frac{\Omega}{T}}\right)^2}\right]\notag\\
+    &=(D-1)\frac{\Omega^2}{T^2}\left[\frac{e^{-\frac{\Omega}{T}}+\cancel{(D-1)e^{-\frac{2\Omega}{T}}}-\cancel{(D-1)e^{-\frac{2\Omega}{T}}}}{\left(1+(D-1)e^{-\frac{\Omega}{T}}\right)^2}\right]\notag\\
+    &=\frac{\Omega^2}{T^2}\frac{(D-1)e^{-\frac{\Omega}{T}}}{\left(1+(D-1)e^{-\frac{\Omega}{T}}\right)^2}=e^x x^2\frac{D-1}{\left(D-1+e^{x}\right)^2} \label{C_opt_T}\\
+    &=\frac{\Delta H^2}{T^2}
+    \label{C-H}
+\end{align}
+In the last step we have used \ref{A2}, the previous derivation for the energy variance of an optimal probe. With this result and Eq.(\ref{F(T)}), we can now establish a relation between the heat capacity and the Fisher Information:
+\begin{equation}
+    F=\frac{C(T)}{T^2}
+\end{equation}
+\par
+We can also find another useful expression for the heat capacity of the optimal probe. In the asymptotic limit of $D\rightarrow\infty$ the optimal gap becomes:
+\begin{align}
+  e^{x^*}=(D-1)\frac{x^*+2}{x^*-2} \rightarrow x^*=\ln(D-1) +\ln\left(\frac{x^*+2}{x^*-2}\right) \approx \ln(D)
+\end{align}
+Introducing this result into the heat capacity we can see how $C^{opt}$ behaves in the limit of large probes.
+\begin{align}
+    C^{opt}(D) = e^xx^2\frac{D-1}{\left(D-1+e^{x}\right)^2} \sim \frac{(\ln D)^2}{4}
+    \label{Copt}
+\end{align}
+Now we can understand this optimal heat capacity as our theoretical limit, also for our Fisher Information. So our objective will be to find real systems, with two-body local interactions, that comes as close as we can to this bound.\par
+To start with this search we consider a generic system of spins with two-body interactions, which is described by a Hamiltonian of the form:
+\begin{equation}
+    H = \sum_i^Nh_i\sigma_i^z + \sum_{i<j}^N J_{ij}\sigma_i^z\sigma_j^z
+\end{equation}
+where $\sigma_i^z = \pm 1$ is the $i$-th classical spin of the system. What we have to tackle now is the complexity of maximizing $C$ over all control parameters $h_i$ and $J_{ij}$. It is important to note that if we don't put any restriction on the possible interactions among the N spins, it is possible to generate a Hamiltonian like Eq.(\ref{Hopt}) and saturate the theoretical maximum value $C^{opt}$ [B.\ref{Paper3}], but we want to check if it is possible to achieve the optimal scaling $C\propto N^2$ with physically motivated 2-body interactions. That scaling appears when we describe a spin system with Eq.(\ref{Copt}), we have $D=2^N$, where N is the total number of spins, thus the ultimate limit reads (in the asymptotic limit of $N\to \infty$):
+\begin{equation}
+    C^{opt}(2^N)\sim \frac{N^2(\ln2)^2}{4} \hspace{0.3cm};\hspace{0.3cm} \beta E \simeq N\ln2
+\end{equation}
+Since we have already seen, in Eq.(\ref{C-H}), the heat capacity only depends on the energy spectrum, so we must find the values of $h_i$ and $J_{ij}$ that maximize $\Delta H^2$. This is a challenging task, that has already been addressed in B.\ref{Paper2}, I will use the results that they have obtained via Machine Learning techniques. After repeating the optimization for different numbers of spins N, there were two patterns detected. For $N\in[2,6]$ the All-to-All model was found, but for $N\geq7$  a "Star Model" hamiltonian was found. This two systems are described by:
+\begin{align}
+    &H_{star}(a,b)=a\sigma_1^z + b\sum_{i=2}^{N}\sigma_i^z(\mathbb{1}+\sigma_1^z)
+    \label{Hstar}\\
+    &H_{all}(h,J)=-h\sum_i^N\sigma_i^z-J\sum_{i<j}^N\sigma_i^z \sigma_j^z
+    \label{H_all}
+\end{align}
+where $a,b\in\mathbb{R}$ describes how a single spin $\sigma_1^z$ is uniformly coupled to the other ones, and same for h and J.\\
+We will focus first on the Star Model. With this Hamiltonian, we can distinguish two main classes of eigenstates, depending on the value of $\sigma_1^z$. If the first is spin up  ($\sigma_1^z=+1$) and $k$ spins also up, among the remaining $N-1$ ones, we have a $\binom{N-1}{k}$-degenerate evenly spaced states with energy
+\begin{equation}
+    E_k=a+2b(k-(N-1-k))\hspace{0.2cm};\hspace{0.2cm}k=0,...,N-1
+\end{equation}
+On the other hand, if we have the first spin down ($\sigma_1^z=-1$) the second term of Eq.(\ref{Hstar}) vanishes independently of the value of all other spins $i\geq2$, what gives us a $2^{N-1}$-degenerate excited state with fixed energy
+\begin{equation}
+    E_{\text{deg}}=-a
+\end{equation}
+So we can understand that the first spin acts as a switch, that turns on and off the effective magnetic field on the remaining spins. Now we can analytically compute the partition function of the Start model by summing the two partition functions of $\sigma_1^z=\pm1$ (explicitly derived in \ref{Z_star_A})
+\begin{align}
+    Z_{\text{star}}=2^{N-1}(e^{-\beta a}\cosh(2\beta b )^{N-1}+e^{\beta a})
+    \label{Z_star}
+\end{align}
+With this result we can easily compute the energy variance, and using Eq.\eqref{C-H} find the heat capacity for the Star Model and compare it with the optimal probe. Since
+\begin{equation}
+    \Delta^2_\beta H=\frac{\partial^2}{\partial\beta^2}\ln Z
+    \label{EnergyVariance}
+\end{equation}
+we must now differentiate twice the partition function to find the energy variance of this configuration. Thus, introducing Eq.\eqref{Z_star} and setting $\beta=1$:
+\begin{align}
+   \Delta^2H_{Star} =&\,\, \frac{\partial^2}{\partial\beta^2} \ln\left[2^{N-1}(e^{-\beta a}\cosh(2\beta b )^{N-1}+e^{\beta a})\right]\bigg|_{\beta=1} \\[10pt]
+   =&\,\,\frac{4b^2 (N-1) \cosh(2b)^N + 2e^{2a} \cosh(2b) \left( a^2 - b^2 (N-1)(N-3)\right)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2}\,\,+\notag\\[10pt]
+   &+ \frac{(a^2 + b^2 (N-1)^2) \cosh(4b) - 2ab(N-1) \sinh(4b)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2}
+   \label{Cstar}
+\end{align}
+So we can compute (since $\beta$ is fixed to 1) $C_{star}(N)= \Delta_\beta H_{star}^2$ and compare it with the optimal bound (Fig.\ref{Cmax_grafica}). It is also useful to compare the asymptotic limit of this two systems. For $N\to \infty$ we can approximate Eq.\eqref{Cstar} to (derived in \ref{A6} - NO ESTÀ ACABAT)
+\begin{equation}
+    C_{max}^{Star}(2^N) \sim \frac{(N-1)^2(\ln{2})^2}{4} = C^{opt}(2^{N-1})
+\end{equation}
+Which for large N becomes equivalent to the theoretical bound of Eq.\eqref{Copt}, as we can see in Fig.\ref{Cmax_grafica}. We can establish the following relation to compare this systems:
+\begin{equation}
+    C^{opt}(2^{N-1})\leq C^{star}_{max}(2^N)\leq C^{opt}(2^{N})
+\end{equation}
+\par
+Now, focusing on the All-to-All Hamiltonian of Eq.\eqref{H_all}, we can notice that it is completely symmetric under permutations of the spin operators. This allows us to express the energy spectrum as a function of the total number $k$ of spins up. As we had in the Star Model, each level has a $\binom{N}{k}$-degeneracy with energy
+\begin{align}
+    E_k=h(N-2k)+\frac{J}{2}[4k(N-k)-N(N-1)]
+    \label{E_all}
+\end{align}
+What gives us a partition function
+\begin{align}
+    Z_{all}=\sum_ig_ie^{-\beta E_I}=\sum_{k=0}^N\binom{N}{k}e^{-\beta E_k}
+    \label{Z_all}
+\end{align}
+After numerical optimization described in B.\ref{Paper2}, it appears that the optimal value for $h$ and $J$, that maximize $C$ must satisfy the relation $h=J$. Introducing this constraint in Eq.\eqref{E_all} gives us
+\begin{equation}
+    E_k=J\left[-\frac{N(N+1)}{2}+2(k+1)(N-k)\right] =J\left[ E_{k=N}+2(k+1)(N-k)\right]
+    \label{Ek_all}
+\end{equation}
+where the last equality means that the ground state is for $k=N$ and the excited states going parabolic in $k$.\par
+In order to compare this system with the previous two, we can't calculate with a direct method an expression for the maximum heat capacity $C_{max}^{all}$ as a function of N, as we did for the Star Model. We can calculate for each $N\in[2,10]$ the energy spectrum, using Eq.\eqref{Ek_all}, then the partition function using Eq.\eqref{Z_all}, and finally the energy variance through Eq.\eqref{EnergyVariance}, which fixing $\beta = 1$ is directly the heat capacity. All this steps are made leaving $J$ as the independent variable, then we just select the maximum of $C(J)$ and that is our $C^{all}_{max}(n_i)$. All this information is detailed in T.\ref{All-To-All Data}. \par
+\vspace{0.2 cm}
+The following figures resumes in a visual way all the calculus and derivations we just made. In the bigger one, we can observe how the Star Model is almost indistinguishable from the theoretical for large N, as expected. On the other hand, for smaller N probes we can see that the all-to-all models gives a slightly better result.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.58]{Combi.png}
+    \captionsetup{justification=centering}
+    \caption{\small Maximum heat capacity of different spin-based systems. The red line corresponds to the optimal probe, described by Eq.\eqref{C_opt_T}, using the gap $x$ numerically calculated by Eq.\eqref{e^x}. The blue dots represent the Star Model described by Eq.\eqref{Cstar}, introducing the values for $a$ and $b$ from B.\ref{Paper2}. And just for a visual help I included the non-interactive lower bound in a green line, that represents $C_{non-int}\approx0.44N$ since 0.44 is the maximum heat capacity for a single spin. In the smaller plot we can see in orange lines the heat capacity for the All-to-All model, using the data from T.\ref{All-To-All Data}, which is bigger than the Star Model for $N\leq5.$}
+    \label{Cmax_grafica}
+\end{figure}
+\newpage
+\appendix
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A\arabic{equation}}
+
+\section{Some derivations}
+A.1 - Partial derivative of the ln of the partition function 
+\begin{align}
+    \partial_\beta\ln\mathcal{Z}&=\frac{1}{\mathcal{Z}}\partial_\beta\sum_ie^{-\beta\epsilon_i}
+    =-\frac{1}{\mathcal{Z}}\sum_i\epsilon_ie^{-\beta\epsilon_i}=-\sum_i\epsilon_i\frac{e^{-\beta\epsilon_i}}{\mathcal{Z}} =- \sum_i\epsilon_ip_i = -\langle H \rangle
+\label{A1}
+\end{align}
+A.2 - Energy variance :
+\begin{align}
+\label{A2}
+  \Delta H^2 &= \mathcal{Z}^{-1}\sum_i^D\epsilon_i^2e^{-\epsilon_i/T} - (\mathcal{Z}^{-1}\sum_i^D\epsilon_i^{-\epsilon_i/T})^2 \notag  \\
+  &=\frac{(D-1)\Omega^2e^{-x}}{1+(D-1)e^{-x}} - \frac{(D-1)^2\Omega^2e^{-2x}}{(1+(D-1)e^{-x})^2} \notag \\
+  &=(D-1)\Omega^2\frac{e^{-x}(1+(D-1)e^{-x})-(D-1)e^{-2x}}{e^{-2x}(D-1+e^x)^2}\notag \\
+  &=(D-1)\Omega^2\frac{e^{-x}+\cancel{(D-1)e^{-2x}}-\cancel{(D-1)e^{-2x}}}{e^{-2x}(D-1+e^x)^2} \notag \\
+  &=e^x\Omega^2\frac{D-1}{(D-1+e^x)^2}  
+\end{align}
+
+A.3 - Fisher Information as a function of D\\
+\begin{equation}
+    F_D = \frac{\Delta H^2}{T^4} = \frac{e^x\Omega^2}{T^4}\frac{D-1}{(D-1+e^x)^2}=\frac{e^x x^4}{\Omega^2}\frac{D-1}{(D-1+e^x)^2}
+    \label{A3}
+\end{equation}\\
+
+A.4 - Optimal gap relation
+\begin{align}
+    &x^*=2(1+\langle H \rangle/T) = 2\left(1 + \frac{(N-N_0)x^* e^{-x^*}}{N_0+(N-N_0)e^{-x^*}}\right)\notag\\
+    &(x^*-2)(N_0+(N-N_0)e^{-x^*})=2(N-N_0)x^* e^{-x^*}\notag\\
+    &(x^*-2)N_0 + e^{-x^*} (x^*-2)(N-N_0) -2(N-N_0)x^* e^{-x^*} = 0 \notag\\
+    &e^{-x^*}\left(x^*-2-2x^*\right)=\frac{(x^*-2)N_0}{N-N_0} \notag\\
+    &e^{x^*} = \frac{N-N_0}{N_0}\frac{x^*+2}{x^*-2}
+    \label{A4}
+\end{align}
+
+A.5 - Partition function for the Star Model
+\begin{align}
+    Z_+
+    &=\sum_{i=1}g_ie^{-E_i\beta}=\sum_{\vec{\sigma}^z}e^{-\beta H_{star}[\vec{\sigma},\sigma_1^z=+1]}=e^{-\beta a}\sum_{\vec{\sigma}^z}e^{-2\beta b \sum_{i=2}^N \sigma_i^z}\notag \\\notag 
+    &=e^{-\beta a}\prod_{i=2}^N\sum_{\sigma_i^z=\pm1}e^{-2\beta b\sigma_i^z}=e^{-\beta a}(e^{-2\beta b}+e^{-2\beta b})^{N-1} \\[5pt] \notag 
+    &= 2^{N-1}e^{-\beta a}\cosh(2\beta b)^{N-1}\\[7pt]\notag
+    Z_-
+    &=\sum_{i=1}g_ie^{-E_i\beta}=2^{N-1}e^{\beta a}\\[2pt]
+    Z_{\text{star}}
+    &=Z_+ + Z_-=2^{N-1}(e^{-\beta a}\cosh(2\beta b )^{N-1}+e^{\beta a}) 
+    \label{Z_star_A}
+\end{align}
+
+A.6 - $C_{Star}$ in the asymptotic limit $N\to\infty$
+\begin{align}
+    \Delta^2H_{Star} =&\,\,\frac{4b^2 (N-1) \cosh(2b)^N + 2e^{2a} \cosh(2b) \left( a^2 - b^2 (N-1)(N-3)\right)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2}\,\,+\notag\\[10pt]
+   &+ \frac{(a^2 + b^2 (N-1)^2) \cosh(4b) - 2ab(N-1) \sinh(4b)}{\cosh(2b)^{2-N} \left( e^{2a} \cosh(2b) + \cosh(2b)^N \right)^2} \label{A6} \\ \notag
+   \approx&\frac{4b^2(N-1)\cosh(2b)^N}{\cosh(2b)^{2-N}\cosh(2b)^{2N}} = \frac{4b^2(N-1)}{\cosh(2b)^{2}}
+\end{align}
+
+\section{References}
+\begin{enumerate}
+    \item \label{Paper1}Individual Quantum probes for optimal thermometry - [https://arxiv.org/pdf/1411.2437]
+    \item \label{Paper2}Optimal Thermometers with Spin Networks - [https://arxiv.org/pdf/2211.01934]
+    \item \label{Paper3}Optimal probes for global quantum thermometry - [https://arxiv.org/pdf/2010.14200v1]
+    \item \label{Thermalization}From dynamical to steady-state many-body metrology: Precision limits and their attainability with two-body interactions - [https://arxiv.org/pdf/2412.02754]
+    \item \label{Review}Thermometry in the quantum regime: Recent theoretical progress - [https://arxiv.org/pdf/1811.03988]
+\end{enumerate}
+
+\section{Data Tables}
+\begin{table}[h]
+    \centering
+    \caption{All-to-All model Data}
+    \begin{tabular}{|c|l|c|c|}
+        \hline 
+        $N$ & $Z$ & $C_{max}$ & $J_{opt}$ \\
+        \hline
+        2 & $e^{3 \beta x} + 3 e^{-\beta x}$ & 1.023 & 0.7112 \\
+        \hline
+        3 & $e^{6 \beta x} +3e^{-2 \beta x} + 4$ & 1.706 & 0.4960 \\
+        \hline
+        4 & $5 e^{2 \beta x} + e^{10 \beta x} + 10 e^{-2 \beta x}$ & 2.461 & 0.3769 \\
+        \hline
+        5 & $6 e^{5 \beta x} + e^{15 \beta x} + 10 e^{-3 \beta x} + 15 e^{-\beta x}$ & 3.274 & 0.3019 \\
+        \hline
+        6 & $21 e^{\beta x} + 7 e^{9\beta x} + e^{21\beta x} + 35 e^{-3\beta x}$ & 4.135 & 0.2506 \\
+        \hline
+        7 & $28 e^{4\beta x} + 8 e^{14\beta x} + e^{28\beta x} + 35 e^{-4\beta x} + 56 e^{-2\beta x}$ & 5.034 & 0.2135 \\
+        \hline
+        8 & $36 e^{8 \beta x} + 9 e^{20 \beta x} + e^{36 \beta x}  + 126 e^{-4 \beta x}+ 84$ & 5.968 & 0.1856 \\
+        \hline
+        9 & $120 e^{3 \beta x} + 45 e^{13 \beta x} + 10 e^{27 \beta x} + e^{45 \beta x} + 126 e^{-5 \beta x} + 210 e^{-3 \beta x}$ & 6.931 & 0.1638 \\
+        \hline
+        10 & $165 e^{7 \beta x} + 55 e^{19 \beta x} + 11 e^{35 \beta x} + e^{55 \beta x} + 462 e^{-5 \beta x} + 330 e^{-\beta x} $ & 7.920 & 0.1464 \\
+        \hline
+    \end{tabular}
+    \label{All-To-All Data}
+\end{table}
+
+
+\end{document}
