@@ -1,7 +1,7 @@
 import numpy as np
 from math import comb
 
-N = 5
+N = 4
 beta = 1
 
 J_values = [0.7112, 0.496, 0.3769, 0.3019, 0.2506, 0.2135]
@@ -44,7 +44,7 @@ def gibbs_distribution(sistema, N, beta):
 p_all_gibbs = gibbs_distribution(1, N, beta)
 p_star_gibbs = gibbs_distribution(2, N, beta)
 
-
+"""
 print("Gibbs (thermal) probabilities for the All-To-All Model:")
 for n, p in enumerate(p_all_gibbs):
     print(f"p_{n} = {p:.5f}")
@@ -55,7 +55,7 @@ E_all_gibbs = np.sum(p_all_gibbs * np.array([U(1, N, n) for n in range(N+1)]))
 print("Energy of the Gibbs state:", E_all_gibbs)
 
 print()
-
+"""
 print("Gibbs (thermal) probabilities for the Star Model:")
 for n, p in enumerate(p_star_gibbs):
     print(f"p_{n} = {p:.5f}")
