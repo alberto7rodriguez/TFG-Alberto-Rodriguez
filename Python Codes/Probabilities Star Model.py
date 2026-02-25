@@ -49,11 +49,7 @@ def transition_matrix(N, beta):
     return M
 
 # Parameters
-<<<<<<< HEAD
-N = 35
-=======
 N = 3
->>>>>>> fa6c63e26ff52c35e77a4297080cceb66088f693
 a = a_values[N-2]
 b = b_values[N-2]
 beta = 1
