@@ -36,7 +36,7 @@ def transition_matrix(N, beta):
         if n > 0:
             if n==1:
                 delta_U = U(N,n-1) - U(N,n)
-                rate_down = 2**(N-1) * f(delta_U, beta) 
+                rate_down = 2**(N-1)*f(delta_U, beta) 
                 M[n, n] -= rate_down
                 M[n-1, n] += rate_down
                 
@@ -49,15 +49,16 @@ def transition_matrix(N, beta):
     return M
 
 # Parameters
-N = 5
+N = 3
 a = a_values[N-2]
 b = b_values[N-2]
 beta = 1
 t = 20.0  # time at which we evaluate the solution
 
+""""
 for n in range(N+1):
     print(f"E_{n} = {U(N,n)}")
-
+"""
 # Initial condition: start in state 0 (e.g., all probability in p_0)
 p0 = np.full(N+1, 1/(N+1))
 '''
