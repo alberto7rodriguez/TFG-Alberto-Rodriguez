@@ -1,3 +1,5 @@
+#Analytic solutions for the different probabilites for the Star Model
+
 import numpy as np
 import scipy.linalg as la
 from scipy.special import comb

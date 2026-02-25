@@ -1,3 +1,5 @@
+#This one is for checking that the new probabilities equations including all the new terms actually converge into the steady solution of a Gibbs state
+
 import numpy as np
 import scipy.linalg as la
 
@@ -13,7 +15,7 @@ gamma = 1.0  # Thermalization rate
 # Indices 0-3: Central Spin DOWN, k = 0, 1, 2, 3
 # Indices 4-7: Central Spin UP,   k = 0, 1, 2, 3
 
-energies = np.zeros(4)
+energies = np.zeros(8)
 degeneracies = np.array([1, 3, 3, 1, 1, 3, 3, 1])
 
 # Calculate energies based on your Hamiltonian

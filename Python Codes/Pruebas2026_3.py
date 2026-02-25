@@ -1,3 +1,5 @@
+#Thermalization times + Gibbs convergence check for the Star Model for arbitrary N
+
 import numpy as np
 import scipy.linalg as la
 from scipy.special import comb
