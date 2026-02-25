@@ -49,7 +49,7 @@ def transition_matrix(N, beta):
     return M
 
 # Parameters
-N = 5
+N = 35
 a = a_values[N-2]
 b = b_values[N-2]
 beta = 1
@@ -95,7 +95,7 @@ for n in range(N+1):
         if np.abs(amplitude) > 1e-6:
             real_part = np.real(amplitude)
             decay = np.real(eigvals[k])
-            terms.append(f"{real_part:.8f} * np.exp({decay:.8f} * t)")
+            terms.append(f"{real_part:.3f} * np.exp({decay:.3f} * t)")
     print(f"p_{n}(t) = " + " + ".join(terms))
     print()
 
