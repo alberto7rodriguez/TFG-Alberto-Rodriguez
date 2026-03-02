@@ -3,6 +3,8 @@
 import numpy as np
 import scipy.linalg as la
 from scipy.special import comb
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 
 # --- 1. Your Data ---
 a_values = [-0.711, 0.000, 0.894, 2.015, 3.398, 5.070, 7.052, 9.358, 11.998, 14.977, 18.297, 21.960, 25.967, 30.318, 35.013, 40.053, 45.438, 51.168, 57.243, 63.664, 70.431, 77.543, 85.001, 92.805, 100.956, 109.452, 118.294, 127.483, 137.018, 146.899, 157.127, 167.701, 178.621, 189.887, 201.500, 213.460, 225.766, 238.418, 251.417, 264.762, 278.453, 292.492, 306.876, 321.607, 336.685, 352.109, 367.879, 383.996, 400.460]
@@ -63,7 +65,7 @@ def build_star_model_matrix(N, a_list, b_list, beta=1.0, gamma=1.0):
 # --- 3. Main Loop: Validation & Thermalization Times ---
 target_N_values = [3, 5, 7, 9, 11, 13, 15]
 beta = 1.0
-
+taus_list = []
 print(f"{'N':<5} | {'Gibbs Match Check':<20} | {'Thermalization Time (tau)':<25}")
 print("-" * 55)
 
@@ -94,5 +96,44 @@ for N in target_N_values:
     sorted_evals = np.sort(eigenvalues)[::-1]
     lambda_1 = sorted_evals[1]
     tau = -1.0 / lambda_1
-    
+    taus_list.append(tau)
+
     print(f"{N:<5} | {match_status:<20} | {tau:<25.6f}")
+
+
+N_values = np.array(target_N_values)
+taus = np.array(taus_list)
+def modelo_exponencial(x, a, b):
+    return a * np.exp(b * x)
+
+popt, _ = curve_fit(modelo_exponencial, N_values, taus)
+a, b = popt
+
+residuals = taus - modelo_exponencial(N_values, *popt)
+ss_res = np.sum(residuals**2)
+ss_tot = np.sum((taus - np.mean(taus))**2)
+r_squared = 1 - (ss_res / ss_tot)
+
+# 5. Generar puntos para la línea de la regresión
+x_fit = np.linspace(min(N_values), max(N_values), 100)
+y_fit = modelo_exponencial(x_fit, a, b)
+
+# 6. Graficar
+plt.figure(figsize=(10, 6))
+plt.scatter(N_values, taus, color='red', marker='x', label='Datos reales', zorder=5)
+plt.plot(x_fit, y_fit, color='blue', label=f'Ajuste: $\\tau = {a:.4f} \cdot e^{{{b:.4f}N}}$')
+
+# Configuración estética
+plt.xlabel('N')
+plt.ylabel('$\\tau$')
+plt.title(f'Regresión Exponencial (R² = {r_squared:.4f})')
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.6)
+
+# Opcional: Escala logarítmica para ver mejor el ajuste en rangos amplios
+# plt.yscale('log') 
+
+plt.show()
+
+print(f"Ecuación ajustada: tau = {a:.4f} * exp({b:.4f} * N)")
+print(f"R^2: {r_squared:.4f}")

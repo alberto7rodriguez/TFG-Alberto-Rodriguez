@@ -59,8 +59,7 @@ def print_analytical_dynamics(N, a, b, beta=1.0, gamma=1.0, initial_state_idx=0)
     evecs = evecs[:, sort_idx]
 
     # 4. Define Initial State and find Coefficients (C = V^-1 * P_0)
-    P_init = np.zeros(2 * N)
-    P_init[initial_state_idx] = 1.0  # 100% probability in the chosen starting state
+    P_init = np.full(2*N, 1/(2*N))
     
     C = la.solve(evecs, P_init)
 
