@@ -4,7 +4,7 @@ import numpy as np
 import scipy.linalg as la
 from scipy.special import comb
 
-def print_analytical_dynamics(N, a, b, beta=1.0, gamma=1.0, initial_state_idx=0):
+def print_analytical_dynamics(N, a, b, beta=1.0, gamma=1.0):
     print(f"--- Analytical Dynamics for N={N}, a={a}, b={b} ---")
     
     # 1. State Definitions and Energies (2N states)
@@ -88,7 +88,7 @@ def print_analytical_dynamics(N, a, b, beta=1.0, gamma=1.0, initial_state_idx=0)
 
 # --- Run for N=3 and N=5 ---
 # For N=3 (index 1 in your list -> a=0.000, b=0.797)
-print_analytical_dynamics(N=3, a=0.000, b=0.797, initial_state_idx=0)
+print_analytical_dynamics(N=15, a=30.318, b=2.527)
 
 # For N=5 (index 3 in your list -> a=2.015, b=1.007)
-print_analytical_dynamics(N=5, a=2.015, b=1.007, initial_state_idx=0)
+#print_analytical_dynamics(N=5, a=2.015, b=1.007)
