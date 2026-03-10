@@ -101,8 +101,12 @@ for N in target_N_values:
     print(f"{N:<5} | {match_status:<20} | {tau:<25.6f}")
 
 
+# --- (Make sure your previous target_N_values, taus_list, a_values, b_values, build_star_model_matrix are defined above this) ---
+
+# --- 1. Data Preparation and Regression (for ax1) ---
 N_values = np.array(target_N_values)
 taus = np.array(taus_list)
+
 def modelo_exponencial(x, a, b):
     return a * np.exp(b * x)
 
@@ -114,25 +118,76 @@ ss_res = np.sum(residuals**2)
 ss_tot = np.sum((taus - np.mean(taus))**2)
 r_squared = 1 - (ss_res / ss_tot)
 
-# 5. Generar puntos para la línea de la regresión
 x_fit = np.linspace(min(N_values), max(N_values), 100)
 y_fit = modelo_exponencial(x_fit, a, b)
 
-# 6. Graficar
-plt.figure(figsize=(10, 6))
-plt.scatter(N_values, taus, color='red', marker='x', label='Datos reales', zorder=5)
-plt.plot(x_fit, y_fit, color='blue', label=f'Ajuste: $\\tau = {a:.4f} \cdot e^{{{b:.4f}N}}$')
+# --- 2. Create the Figure and Subplots ---
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
-# Configuración estética
-plt.xlabel('N')
-plt.ylabel('$\\tau$')
-plt.title(f'Regresión Exponencial (R² = {r_squared:.4f})')
-plt.legend()
-plt.grid(True, linestyle='--', alpha=0.6)
+# --- Plot 1: Exponential Regression on ax1 ---
+ax1.scatter(N_values, taus, color='red', marker='x', label='Obtained times', zorder=5)
+ax1.plot(x_fit, y_fit, color='blue', label=f'$\\tau = {a:.4f} \\cdot e^{{{b:.4f}N}}$')
 
-# Opcional: Escala logarítmica para ver mejor el ajuste en rangos amplios
-# plt.yscale('log') 
+ax1.set_xlabel(r'$N$', fontsize=12)
+ax1.set_ylabel(r'$\tau$', fontsize=12)
+ax1.set_title(r'Thermalization times scaling with $N$', fontsize=14)
+ax1.legend()
+ax1.grid(True, linestyle='--', alpha=0.6)
+# ax1.set_yscale('log') # Uncomment if you want logarithmic scale later
 
+# --- Plot 2: Fisher Information Evolution on ax2 ---
+N_values_to_plot = [3, 5, 7] 
+d_beta = 0.001
+times = np.linspace(0, 160, 200) 
+
+for N_test in N_values_to_plot:
+    fisher_beta = []
+    
+    # Initial state: Uniform distribution over 2N states
+    p0 = np.ones(2 * N_test) / (2 * N_test)
+    M_b, _, _ = build_star_model_matrix(N_test, a_values, b_values, beta=beta)
+
+    '''Initial state: Ground State
+    M_b, energies, _ = build_star_model_matrix(N_test, a_values, b_values, beta=beta)
+    p0 = np.zeros(2 * N_test)
+    ground_state_idx = np.argmin(energies) # Finds the index of the minimum energy
+    p0[ground_state_idx] = 1.0
+    '''
+
+    evals, evecs = la.eig(M_b)
+    evecs_inv = la.inv(evecs)
+    
+    M_b_plus, _, _ = build_star_model_matrix(N_test, a_values, b_values, beta=beta + d_beta)
+    evals_p, evecs_p = la.eig(M_b_plus)
+    evecs_inv_p = la.inv(evecs_p)
+
+    for t in times:
+        # P(t) at beta
+        exp_dt = np.diag(np.exp(evals * t))
+        pt = np.real(evecs @ exp_dt @ evecs_inv @ p0)
+        
+        # P(t) at beta + d_beta
+        exp_dt_p = np.diag(np.exp(evals_p * t))
+        pt_plus = np.real(evecs_p @ exp_dt_p @ evecs_inv_p @ p0)
+        
+        # Numerical derivative and Fisher Info calculation
+        dp_dbeta = (pt_plus - pt) / d_beta
+        fi = np.sum((dp_dbeta**2) / (pt + 1e-12))
+        fisher_beta.append(fi)
+    
+    ax2.plot(times, fisher_beta, label=f'N = {N_test}', linewidth=2.5)
+
+ax2.set_xlabel(r'$t$', fontsize=12)
+ax2.set_xscale('function', functions=(lambda x: np.power(x, 0.5), lambda x: np.power(x, 2)))
+ax2.set_ylabel(r'$F_{\beta}(t)$', fontsize=12)
+ax2.set_title(r'Evolution of $F_{\beta}$ ($p_n(0)=1/2N$)', fontsize=14)
+ax2.legend()
+ax2.grid(True, linestyle='--', alpha=0.6)
+
+fig.suptitle(r'Star Model Model', fontsize=16, fontweight='bold')
+
+# --- Final Layout Adjustments and Print Statements ---
+plt.tight_layout()
 plt.show()
 
 print(f"Ecuación ajustada: tau = {a:.4f} * exp({b:.4f} * N)")
