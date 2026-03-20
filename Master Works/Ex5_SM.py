@@ -75,6 +75,5 @@ def run_and_plot(N):
     plt.tight_layout()
     plt.show()
 
-if __name__ == "__main__":
-    for N in [5, 20, 26]:
-        run_and_plot(N)
+for N in [5, 20, 26]:
+    run_and_plot(N)
