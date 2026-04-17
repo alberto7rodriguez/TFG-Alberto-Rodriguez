@@ -6,7 +6,7 @@ from scipy.optimize import minimize
 # --- 1. PARÁMETROS GLOBALES ---
 # =============================================================================
 n_levels = 7         # Número de niveles macroscópicos (n)
-N_spins = 7          # Número de espines equivalentes
+N_spins = 6          # Número de espines equivalentes
 D_total = 2**N_spins # Dimensión total del espacio de Hilbert
 beta = 1.0           # Temperatura inversa
 gamma = 1.0          # Constante de acoplamiento al baño
