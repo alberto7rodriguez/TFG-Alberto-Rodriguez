@@ -5,7 +5,7 @@ from scipy.optimize import minimize
 # =============================================================================
 # --- 1. PARÁMETROS GLOBALES ---
 # =============================================================================
-N = 4                 # Número de espines (Mantenlo <= 6 para velocidad)
+N = 6                 # Número de espines (Mantenlo <= 6 para velocidad)
 D = 2**N              # Dimensión del espacio de Hilbert
 beta = 1.0            # Temperatura inversa
 gamma = 1.0           # Tasa base de Glauber
