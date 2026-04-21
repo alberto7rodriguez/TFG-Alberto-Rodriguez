@@ -63,7 +63,7 @@ def calc_chi(x, n, beta, gamma):
     
     tau = 1.0 / (lambda_1 + 1e-12) # Evitar división por cero
     
-    chi = C / tau
+    chi = C
     
     # Devolvemos -chi porque scipy.minimize siempre busca el MÍNIMO
     return -chi
